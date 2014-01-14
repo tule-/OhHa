@@ -1,3 +1,3 @@
-Kansiosta Kuvaus löytyy ohjelman alustava kuvaus.
+Kansiosta Dokumentit löytyy ohjelman alustava kuvaus.
 
 Kansio OhHa on Javaprojektin pääkansio.
