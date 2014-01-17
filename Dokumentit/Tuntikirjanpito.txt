@@ -3,4 +3,5 @@ TUNTIKIRJANPITO
 
 *14.01.13 - 3h - 0 testiä - Githubin opettelu ja ensimmäisen viikon tehtävien teko.
 *18.01.13 - 3h - 0 testiä - Ohjelmointi aloitettu. Pelaajan liike kartoitettu ja varmistettu ettei voida liikkua
-                            kartalta ulos.
+                            kartalta ulos. Lisätty väliaikainen luokka (testi) jolla testataan ohjelman toimintaa
+                            tekstikäyttöliittymällä.
