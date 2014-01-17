@@ -1,3 +1,3 @@
-Kansiosta Dokumentit löytyy ohjelman alustava kuvaus sekä tuntikirjanpito.
+# Kansiosta Dokumentit löytyy ohjelman alustava kuvaus sekä tuntikirjanpito.
 
-Kansio OhHa on javaprojektin pääkansio.
+# Kansio OhHa on javaprojektin pääkansio.
