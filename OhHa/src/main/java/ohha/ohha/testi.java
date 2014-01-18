@@ -57,6 +57,7 @@ public class testi {
             h.siirra(0, 0);
             
             //TARKISTUS ONKO PELAAJA ELOSSA
+            //(koordinaatit täytyy viedä luokkaan jotta tarkistus toimii)
             if(ku.pelaajakuollut(p.getX(), p.getY(), h.getX(), h.getY()) == true){
                 break;
             }
