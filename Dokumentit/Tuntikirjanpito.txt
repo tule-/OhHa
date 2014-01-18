@@ -1,10 +1,11 @@
 TUNTIKIRJANPITO
 ---------------
 
-*14.01.13 - 3h - 0 testiä - Githubin opettelu ja ensimmäisen viikon tehtävien teko.
-*17.01.13 - 3h - 0 testiä - Ohjelmointi aloitettu. Pelaajan liike kartoitettu ja varmistettu ettei voida liikkua
+*14.01.14 - 3h - 0 testiä - Githubin opettelu ja ensimmäisen viikon tehtävien teko.
+*17.01.14 - 3h - 0 testiä - Ohjelmointi aloitettu. Pelaajan liike kartoitettu ja varmistettu ettei voida liikkua
                             kartalta ulos. Lisätty väliaikainen luokka (testi) jolla testataan ohjelman toimintaa
                             tekstikäyttöliittymällä.
-*18.01.13 - 1h - 0 testiä - Hirviön liike kartoitettu. Hirviö liikkuu random- generaatorilla eikä voi liikku 
+*18.01.14 - 1h - 0 testiä - Hirviön liike kartoitettu. Hirviö liikkuu random- generaatorilla eikä voi liikku 
                             kartalta ulos.
-*18.01.13 - 2h - 0 testiä - Pelaaja kuolee jos hirviö osuu samaan ruutuun.
+*18.01.14 - 2h - 0 testiä - Pelaaja kuolee jos hirviö osuu samaan ruutuun.
+*18.01.14 - 2h - 17testiä - Testaaminen aloitettu.
