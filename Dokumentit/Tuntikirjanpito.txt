@@ -7,3 +7,4 @@ TUNTIKIRJANPITO
                             tekstikäyttöliittymällä.
 *18.01.13 - 1h - 0 testiä - Hirviön liike kartoitettu. Hirviö liikkuu random- generaatorilla eikä voi liikku 
                             kartalta ulos.
+*18.01.13 - 2h - 0 testiä - Pelaaja kuolee jos hirviö osuu samaan ruutuun.

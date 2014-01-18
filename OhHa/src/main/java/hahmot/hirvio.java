@@ -7,7 +7,7 @@ import logiikka.hahmo;
 public class hirvio extends hahmo {
     
     public hirvio(){
-        super(0,0);
+        super(1,1);
     }
     
     @Override
