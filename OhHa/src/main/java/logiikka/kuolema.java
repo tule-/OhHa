@@ -4,8 +4,6 @@ import hahmot.hirvio;
 import hahmot.pelaaja;
 
 public class kuolema {
-    //LISÄTÄÄN ENSIN PELAAJAN KUOLEMA JA MYÖHEMMIN
-    //HIRVIÖN KUN SAADAAN VOIMAKENTTÄ KOODATTUA
 
     private pelaaja p;
     private hirvio h;
@@ -24,4 +22,6 @@ public class kuolema {
             return false;
         }
     }
+    
+    //LISÄTÄÄN MYÖHEMMIN HIRVIÖN KUOLEMA
 }

@@ -21,17 +21,21 @@ public class testi {
         Scanner l = new Scanner(System.in);
         kuolema ku = new kuolema();
 
-        hg.lisaa(1);
+        //HIRVIÖIDEN LKM (+1)
+        hg.lisaa(5);
 
         //PELIKENTTÄ
         while (true) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 20; j++) {
-                    if (p.getX() == j && p.getY() == i) {
+                    for (hirvio h1 : hg.getLista()) {
+                        if(h1.getX() == j && h1.getY() == i){
+                            System.out.print("H");
+                        }
+                    }
+                    if(p.getX() == j && p.getY() == i){
                         System.out.print("O");
-                    } else if (hg.getLista().get(0).getX() == j && hg.getLista().get(0).getY() == i) {
-                        System.out.print("H");
-                    } else {
+                    }else{
                         System.out.print("-");
                     }
                 }
@@ -57,20 +61,28 @@ public class testi {
             }
 
             //HIRVIÖN LIIKE. (0,0) KOSKA LIIKE ARVOTAAN ITSE METODISSA
-            for (hahmo h1 : hg.getLista()) {
+            for (hirvio h1 : hg.getLista()) {
                 h1.siirra(0, 0);
             }
 
             //TARKISTUS ONKO PELAAJA ELOSSA
             //(koordinaatit täytyy viedä luokkaan jotta tarkistus toimii)
-            for (hahmo h1 : hg.getLista()) {
+            int apu1 = 0;
+            for (hirvio h1 : hg.getLista()) {
                 if (ku.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
-                    break;
+                    apu1 = 1;
                 }
+            }
+            //BREAK EI TOIMI FOR-EACH-LOOPISSA
+            if (apu1 == 1) {
+                break;
             }
 
             //KOORDINAATIT
             System.out.println("pelaaja: " + p.getX() + " " + p.getY());
+            for (hirvio h1 : hg.getLista()) {
+                System.out.println("hirvio: " + h1.getX() + " " + h1.getY());
+            }
         }
     }
 }

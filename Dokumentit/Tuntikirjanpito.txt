@@ -9,3 +9,4 @@ TUNTIKIRJANPITO
                             kartalta ulos.
 *18.01.14 - 2h - 0 testiä - Pelaaja kuolee jos hirviö osuu samaan ruutuun.
 *18.01.14 - 2h - 17testiä - Testaaminen aloitettu.
+*19.01.14 - 2h - 21testiä - Hirviögeneraattori luotu ja toiminta testattu suunnilleen toimivaksi.

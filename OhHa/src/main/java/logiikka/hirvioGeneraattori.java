@@ -5,22 +5,22 @@ import java.util.ArrayList;
 
 public class hirvioGeneraattori {
 
-    private ArrayList<hahmo> hirviot;
-    private hahmo h;
+    private ArrayList<hirvio> hirviot;
 
     public hirvioGeneraattori() {
         this.hirviot = new ArrayList<>();
-        this.h = new hirvio();
     }
 
-    public ArrayList<hahmo> lisaa(int maara) {
-        for (int i = 0; i < maara; i++) {
-            hirviot.add(h);
+    public ArrayList<hirvio> lisaa(int maara) {
+        for (int i = 0; i <= maara; i++) {
+            hirviot.add(new hirvio());
         }
         return hirviot;
     }
     
-    public ArrayList<hahmo> getLista(){
+    public ArrayList<hirvio> getLista(){
         return hirviot;
     }
+    
+    //GENERAATTORIIN LISÄTÄÄN OMINAISUUS VALITA HIRVIÖN SPAWNAAMISPAIKKA
 }
