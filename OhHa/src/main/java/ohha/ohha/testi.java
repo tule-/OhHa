@@ -4,21 +4,24 @@ import hahmot.hirvio;
 import hahmot.pelaaja;
 import java.util.Scanner;
 import logiikka.hahmo;
+import logiikka.hirvioGeneraattori;
 import logiikka.kuolema;
 
 public class testi {
 
     private hahmo p;
-    private hahmo h;
+    public hirvioGeneraattori hg;
 
     public testi() {
         this.p = new pelaaja();
-        this.h = new hirvio();
+        this.hg = new hirvioGeneraattori();
     }
 
     public void run() {
         Scanner l = new Scanner(System.in);
         kuolema ku = new kuolema();
+
+        hg.lisaa(1);
 
         //PELIKENTTÄ
         while (true) {
@@ -26,7 +29,7 @@ public class testi {
                 for (int j = 0; j < 20; j++) {
                     if (p.getX() == j && p.getY() == i) {
                         System.out.print("O");
-                    } else if (h.getX() == j && h.getY() == i) {
+                    } else if (hg.getLista().get(0).getX() == j && hg.getLista().get(0).getY() == i) {
                         System.out.print("H");
                     } else {
                         System.out.print("-");
@@ -54,17 +57,20 @@ public class testi {
             }
 
             //HIRVIÖN LIIKE. (0,0) KOSKA LIIKE ARVOTAAN ITSE METODISSA
-            h.siirra(0, 0);
-            
+            for (hahmo h1 : hg.getLista()) {
+                h1.siirra(0, 0);
+            }
+
             //TARKISTUS ONKO PELAAJA ELOSSA
             //(koordinaatit täytyy viedä luokkaan jotta tarkistus toimii)
-            if(ku.pelaajakuollut(p.getX(), p.getY(), h.getX(), h.getY()) == true){
-                break;
+            for (hahmo h1 : hg.getLista()) {
+                if (ku.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
+                    break;
+                }
             }
-            
+
             //KOORDINAATIT
             System.out.println("pelaaja: " + p.getX() + " " + p.getY());
-            System.out.println("hirvio: " + h.getX() + " " + h.getY());
         }
     }
 }
