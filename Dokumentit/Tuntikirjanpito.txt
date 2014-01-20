@@ -11,3 +11,4 @@ TUNTIKIRJANPITO
 *18.01.14 - 2h - 17testiä - Testaaminen aloitettu.
 *19.01.14 - 2h - 21testiä - Hirviögeneraattori luotu ja toiminta testattu suunnilleen toimivaksi.
 *20.01.14 - 1h - 23testiä - Operation KILL ALL MUTANTS is postponed. 3 mutanttia tapettu.
+*20.01.14 - 3h - 23testiä - Pelaajalle voimakenttä. VoimaKenttä tulostuu oikein mutta ei vielä vaikuta hirviöihin.
