@@ -71,6 +71,7 @@ public class testi {
             for (hirvio h1 : hg.getLista()) {
                 if (ku.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
                     apu1 = 1;
+                    System.out.println("KUOLIT!");
                 }
             }
             //BREAK EI TOIMI FOR-EACH-LOOPISSA

@@ -16,7 +16,6 @@ public class kuolema {
     public boolean pelaajakuollut(int px, int py, int hx, int hy) {
         if (px == hx && py == hy) {
             //GRAAFISESSA LIITTYMÄSSÄ SIIRRYTÄÄN LOPPURUUTUUN
-            System.out.println("KUOLIT!");
             return true;
         } else {
             return false;
