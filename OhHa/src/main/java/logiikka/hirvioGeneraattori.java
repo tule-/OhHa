@@ -22,5 +22,9 @@ public class hirvioGeneraattori {
         return hirviot;
     }
     
+    public void tapaHirvio(int i){
+        hirviot.remove(i);
+    }
+    
     //GENERAATTORIIN LISÄTÄÄN OMINAISUUS VALITA HIRVIÖN SPAWNAAMISPAIKKA
 }

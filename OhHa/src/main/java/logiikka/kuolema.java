@@ -1,17 +1,6 @@
 package logiikka;
 
-import hahmot.hirvio;
-import hahmot.pelaaja;
-
 public class kuolema {
-
-    private pelaaja p;
-    private hirvio h;
-
-    public kuolema() {
-        this.p = new pelaaja();
-        this.h = new hirvio();
-    }
 
     public boolean pelaajakuollut(int px, int py, int hx, int hy) {
         if (px == hx && py == hy) {
@@ -21,6 +10,12 @@ public class kuolema {
             return false;
         }
     }
-    
-    //LISÄTÄÄN MYÖHEMMIN HIRVIÖN KUOLEMA
+
+    public boolean hirviokuollut(int hx, int hy, voimakentta v) {
+        if (hx == v.getX1() && hy == v.getY1() || hx == v.getX2() && hy == v.getY2() || hx == v.getX3() && hy == v.getY3() || hx == v.getX4() && hy == v.getY4()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -24,7 +24,7 @@ public class testi {
         voimakentta vk = new voimakentta();
 
         //HIRVIÖIDEN LKM (+1)
-        hg.lisaa(5);
+        hg.lisaa(2);
 
         while (true) {
 
@@ -56,6 +56,9 @@ public class testi {
 
             //KOORDINAATIT
             System.out.println("pelaaja: " + p.getX() + " " + p.getY());
+            for (hirvio h1 : hg.getLista()) {
+                System.out.println("hirvio: " + h1.getX() + " " + h1.getY());
+            }
 
             //PELIKENTTÄ
             for (int i = 0; i < 10; i++) {
@@ -87,8 +90,23 @@ public class testi {
                     System.out.println("KUOLIT!");
                 }
             }
+            
+            //TARKISTUS ONKO HIRVIO KUOLLUT
+            //(tarvitaan hirvion koordinaatit sekä voimakentta)
+            for (int i = 0; i < hg.getLista().size(); i++) {
+                if(ku.hirviokuollut(hg.getLista().get(i).getX(), hg.getLista().get(i).getY(), vk) ==  true){
+                    hg.tapaHirvio(i);
+                    System.out.println("Hirvio kuoli!");
+                }
+            }
+            
             //BREAK EI TOIMI FOR-EACH-LOOPISSA
             if (apu1 == 1) {
+                break;
+            }
+            
+            if(hg.getLista().isEmpty()){
+                System.out.println("VOITIT PELIN!");
                 break;
             }
             

@@ -1,17 +1,17 @@
 package logiikka;
 
 public class voimakentta {
-    private int X1;
-    private int Y1;
+    private int X1 = 10000;
+    private int Y1 = 10000;
     
-    private int X2;
-    private int Y2;
+    private int X2 = 10000;
+    private int Y2 = 10000;
     
-    private int X3;
-    private int Y3;
+    private int X3 = 10000;
+    private int Y3 = 10000;
     
-    private int X4;
-    private int Y4;
+    private int X4 = 10000;
+    private int Y4 = 10000;
     
     public void nollaa(){
         this.X1 = 10000;
