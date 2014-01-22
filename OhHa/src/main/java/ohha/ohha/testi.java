@@ -6,6 +6,7 @@ import java.util.Scanner;
 import logiikka.hahmo;
 import logiikka.hirvioGeneraattori;
 import logiikka.kuolema;
+import logiikka.pistelaskuri;
 import logiikka.voimakentta;
 
 public class testi {
@@ -22,6 +23,8 @@ public class testi {
         Scanner l = new Scanner(System.in);
         kuolema ku = new kuolema();
         voimakentta vk = new voimakentta();
+        pistelaskuri pl = new pistelaskuri();
+        int apu2 = 5;
 
         //HIRVIÖIDEN LKM (+1)
         hg.lisaa(2);
@@ -53,6 +56,12 @@ public class testi {
             for (hirvio h1 : hg.getLista()) {
                 h1.siirra(0, 0);
             }
+            
+            //PISTEET
+            System.out.println("peaajan pisteet: " + pl.getPisteet());
+            
+            //KIERROSLASKURI
+            System.out.println("uusi hirviö: " + apu2);
 
             //KOORDINAATIT
             System.out.println("pelaaja: " + p.getX() + " " + p.getY());
@@ -88,6 +97,7 @@ public class testi {
                 if (ku.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
                     apu1 = 1;
                     System.out.println("KUOLIT!");
+                    System.out.println("Pisteesi: " + pl.getPisteet());
                 }
             }
             
@@ -97,6 +107,7 @@ public class testi {
                 if(ku.hirviokuollut(hg.getLista().get(i).getX(), hg.getLista().get(i).getY(), vk) ==  true){
                     hg.tapaHirvio(i);
                     System.out.println("Hirvio kuoli!");
+                    pl.lisaa();
                 }
             }
             
@@ -112,6 +123,13 @@ public class testi {
             
             //VOIMAKENTÄN NOLLAUS
             vk.nollaa();
+            
+            //JOKA VIIDEN KIERROS LISÄTÄÄN HIRVIÖ
+            apu2--;
+            if(apu2 == 0){
+                hg.lisaa(0);
+                apu2 = 5;
+            }
         }
     }
 }
