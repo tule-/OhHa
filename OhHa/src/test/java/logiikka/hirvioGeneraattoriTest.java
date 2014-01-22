@@ -62,4 +62,12 @@ public class hirvioGeneraattoriTest {
     public void lisaaMetodiPalauttaaListan() {
         assertEquals(hg.lisaa(0), hg.getLista());
     }
+    
+    @Test
+    public void komentotapaHirvioPoistaaHirvionListalta(){
+        hg.lisaa(2); // 1 + 3 HIRVIÖTÄ
+        hg.tapaHirvio(1);
+        
+        assertEquals(3, hg.getLista().size());
+    }
 }

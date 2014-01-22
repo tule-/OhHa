@@ -9,10 +9,12 @@ import static org.junit.Assert.*;
 
 public class kuolemaTest {
     private kuolema k;
+    private voimakentta vk;
     
     @Before
     public void setUp() {
         this.k = new kuolema();
+        this.vk = new voimakentta();
     }
 
     @Test
@@ -31,5 +33,24 @@ public class kuolemaTest {
         assertEquals(false, k.pelaajakuollut(5, 6, 4, 3));
     }
     
-    //MYÖHEMMIN TESTIT HIRVIÖN KUOLEMALLE
+    @Test
+    public void palauttaatrueJosHirvioKuolee(){
+        vk.hyokkaa(5, 5);
+        
+        assertEquals(true, k.hirviokuollut(6, 5, vk));
+        assertEquals(true, k.hirviokuollut(4, 5, vk));
+        assertEquals(true, k.hirviokuollut(5, 6, vk));
+        assertEquals(true, k.hirviokuollut(5, 4, vk));
+    }
+    
+    @Test
+    public void palauttaafalseJosHirvioOnElossa(){
+        vk.hyokkaa(5, 5);
+        
+        assertEquals(false, k.hirviokuollut(3, 5, vk));
+        assertEquals(false, k.hirviokuollut(5, 5, vk));
+        assertEquals(false, k.hirviokuollut(5, 3, vk));
+        assertEquals(false, k.hirviokuollut(5, 7, vk));
+        assertEquals(false, k.hirviokuollut(1, 0, vk));
+    }
 }

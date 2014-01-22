@@ -14,4 +14,6 @@ TUNTIKIRJANPITO
 *20.01.14 - 3h - 23testiä - Pelaajalle voimakenttä. VoimaKenttä tulostuu oikein ja on voimassa vain yhden kierroksen 
                             kerrallaan mutta ei vielä vaikuta hirviöihin.
 *21.01.14 - 2h - 23testiä - Hirviöt kuolevat pelaajan voimakenttään. Jos pelaaja tappaa kaikki hirviöt peli loppuu.
-*22.01.14 - 1h - 23testiä - Pistelaskuri lisätty. Pelin pelattavuus testattu tekstikäyttöliittymässä.
+*22.01.14 - 1h - 23testiä - Pistelaskuri lisätty. Pelin pelattavuus testattu tekstikäyttöliittymässä ja todettu 
+                            suhtellisen toimivaksi.
+*22.01.14 - 1h - 40testiä - Testit päivitetti. Refaktorointi tarpeen.
