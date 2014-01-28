@@ -2,12 +2,12 @@ package logiikka;
 
 import java.awt.Graphics;
 
-public abstract class hahmo {
+public abstract class Hahmo {
 
     private int X;
     private int Y;
 
-    public hahmo(int x, int y) {
+    public Hahmo(int x, int y) {
         this.X = x;
         this.Y = y;
     }

@@ -1,24 +1,24 @@
 package logiikka;
 
-import hahmot.hirvio;
+import hahmot.Hirvio;
 import java.util.ArrayList;
 
-public class hirvioGeneraattori {
+public class HirvioGeneraattori {
 
-    private ArrayList<hirvio> hirviot;
+    private ArrayList<Hirvio> hirviot;
 
-    public hirvioGeneraattori() {
+    public HirvioGeneraattori() {
         this.hirviot = new ArrayList<>();
     }
 
-    public ArrayList<hirvio> lisaa(int maara) {
+    public ArrayList<Hirvio> lisaa(int maara) {
         for (int i = 0; i <= maara; i++) {
-            hirviot.add(new hirvio());
+            hirviot.add(new Hirvio());
         }
         return hirviot;
     }
     
-    public ArrayList<hirvio> getLista(){
+    public ArrayList<Hirvio> getLista(){
         return hirviot;
     }
     

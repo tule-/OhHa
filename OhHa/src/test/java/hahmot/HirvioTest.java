@@ -1,27 +1,23 @@
 package hahmot;
 
-import logiikka.hahmo;
-import org.junit.After;
-import org.junit.AfterClass;
+import logiikka.Hahmo;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class hirvioTest {
-    private hahmo h;
+public class HirvioTest {
+    private Hahmo h;
     
     @Before
     public void setUp() {
-        this.h = new hirvio();
-        //ALKUKOORDINAATIT (1,1)
+        this.h = new Hirvio();
+        //ALKUKOORDINAATIT (0,0)
     }
 
-    //KAIKKIA TULEE MUUTTAA KUN super:IA MUUTETAAN
     @Test
     public void hirviollaAloitusKoordinaatit() {
-        assertEquals(1, h.getX());
-        assertEquals(1, h.getY());
+        assertEquals(0, h.getX());
+        assertEquals(0, h.getY());
     }
     
     @Test
@@ -31,14 +27,14 @@ public class hirvioTest {
         int y = h.getY();
         
         //X-AKSELI
-        if(x <= 2 && x >= 0){
+        if(x <= 25 && x >= 0){
             assertEquals(true, true);
         }else{
             assertEquals(false, true);
         }
         
         //Y-AKSELI
-        if(y <= 2 && y >= 0){
+        if(y <= 25 && y >= 0){
             assertEquals(true, true);
         }else{
             assertEquals(false, true);
@@ -52,23 +48,19 @@ public class hirvioTest {
         }
         
         //X-AKSELI
-        if(h.getX() <= 19 && h.getX() >= 0){
+        if(h.getX() <= 800 && h.getX() >= 0){
             assertEquals(true, true);
         }else{
             assertEquals(false, true);
         }
         
         //Y-AKSELI
-        if(h.getY() <= 9 && h.getY() >= 0){
+        if(h.getY() <= 600 && h.getY() >= 0){
             assertEquals(true, true);
         }else{
             assertEquals(false, true);
         }
     }
     
-    //LISÄTÄÄN TESTEJÄ GRAAFISELLELIITTYMÄLLE
-    @Test
-    public void piirraMetodi(){
-        h.piirra(null);
-    }
+    //LISÄTÄÄN TESTEJÄ GRAAFISELLELIITTYMÄLLE?
 }

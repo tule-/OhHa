@@ -1,6 +1,6 @@
 package logiikka;
 
-import logiikka.pistelaskuri;
+import logiikka.Pistelaskuri;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -8,12 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class pistelaskuriTest {
-    private pistelaskuri pl;
+public class PistelaskuriTest {
+    private Pistelaskuri pl;
 
     @Before
     public void setUp() {
-        this.pl = new pistelaskuri();
+        this.pl = new Pistelaskuri();
     }
 
     @Test

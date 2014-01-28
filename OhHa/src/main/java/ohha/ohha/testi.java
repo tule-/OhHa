@@ -1,29 +1,29 @@
 package ohha.ohha;
 
-import hahmot.hirvio;
-import hahmot.pelaaja;
+import hahmot.Hirvio;
+import hahmot.Pelaaja;
 import java.util.Scanner;
-import logiikka.hahmo;
-import logiikka.hirvioGeneraattori;
-import logiikka.kuolema;
-import logiikka.pistelaskuri;
-import logiikka.voimakentta;
+import logiikka.Hahmo;
+import logiikka.HirvioGeneraattori;
+import logiikka.Kuolema;
+import logiikka.Pistelaskuri;
+import logiikka.Voimakentta;
 
 public class testi {
 
-    private hahmo p;
-    public hirvioGeneraattori hg;
+    private Hahmo p;
+    public HirvioGeneraattori hg;
 
     public testi() {
-        this.p = new pelaaja();
-        this.hg = new hirvioGeneraattori();
+        this.p = new Pelaaja();
+        this.hg = new HirvioGeneraattori();
     }
 
     public void run() {
         Scanner l = new Scanner(System.in);
-        kuolema ku = new kuolema();
-        voimakentta vk = new voimakentta();
-        pistelaskuri pl = new pistelaskuri();
+        Kuolema ku = new Kuolema();
+        Voimakentta vk = new Voimakentta();
+        Pistelaskuri pl = new Pistelaskuri();
         int apu2 = 5;
 
         //HIRVIÖIDEN LKM (+1)
@@ -53,28 +53,28 @@ public class testi {
             }
 
             //HIRVIÖN LIIKE. (0,0) KOSKA LIIKE ARVOTAAN ITSE METODISSA
-            for (hirvio h1 : hg.getLista()) {
+            for (Hirvio h1 : hg.getLista()) {
                 h1.siirra(0, 0);
             }
             
             //PISTEET
-            System.out.println("peaajan pisteet: " + pl.getPisteet());
+            System.out.println("pelaajan pisteet: " + pl.getPisteet());
             
             //KIERROSLASKURI
             System.out.println("uusi hirviö: " + apu2);
 
             //KOORDINAATIT
             System.out.println("pelaaja: " + p.getX() + " " + p.getY());
-            for (hirvio h1 : hg.getLista()) {
-                System.out.println("hirvio: " + h1.getX() + " " + h1.getY());
-            }
+            
+            //HIRVIÖIDEN LKM
+            System.out.println("hirviöitä: " + hg.getLista().size());
 
             //PELIKENTTÄ
             for (int i = 0; i < 10; i++) {
 
                 for (int j = 0; j < 20; j++) {
 
-                    for (hirvio h1 : hg.getLista()) {
+                    for (Hirvio h1 : hg.getLista()) {
                         if (h1.getX() == j && h1.getY() == i) {
                             System.out.print("H");
                         }
@@ -93,7 +93,7 @@ public class testi {
             //TARKISTUS ONKO PELAAJA ELOSSA
             //(koordinaatit täytyy viedä luokkaan jotta tarkistus toimii)
             int apu1 = 0;
-            for (hirvio h1 : hg.getLista()) {
+            for (Hirvio h1 : hg.getLista()) {
                 if (ku.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
                     apu1 = 1;
                     System.out.println("KUOLIT!");

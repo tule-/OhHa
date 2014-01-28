@@ -16,4 +16,7 @@ TUNTIKIRJANPITO
 *21.01.14 - 2h - 23testiä - Hirviöt kuolevat pelaajan voimakenttään. Jos pelaaja tappaa kaikki hirviöt peli loppuu.
 *22.01.14 - 1h - 23testiä - Pistelaskuri lisätty. Pelin pelattavuus testattu tekstikäyttöliittymässä ja todettu 
                             suhtellisen toimivaksi.
-*22.01.14 - 1h - 40testiä - Testit päivitetti. Refaktorointi tarpeen.
+*22.01.14 - 1h - 40testiä - Testit päivitetty. Refaktorointi tarpeen.
+*26.01.14 - 4h - ..testiä - Siirtymä graafiseen liittymään. Testit tulee päivittää.
+*27.01.14 - 2h - ..testiä - Alku- ja loppuvalikko lisätty. Luokkien nimet korjattu alkamaan isolla.
+*28.01.14 - 1h - 38testiä - Testit päivitetty.

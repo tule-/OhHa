@@ -1,21 +1,18 @@
 package logiikka;
 
-import hahmot.hirvio;
+import hahmot.Hirvio;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class hirvioGeneraattoriTest {
+public class HirvioGeneraattoriTest {
 
-    private hirvioGeneraattori hg;
+    private HirvioGeneraattori hg;
 
     @Before
     public void setUp() {
-        this.hg = new hirvioGeneraattori();
+        this.hg = new HirvioGeneraattori();
         hg.lisaa(0);
     }
 
@@ -33,25 +30,25 @@ public class hirvioGeneraattoriTest {
 
     @Test
     public void metodigetListaPalauttaaListan() {
-        ArrayList<hirvio> lista = hg.getLista();
+        ArrayList<Hirvio> lista = hg.getLista();
 
         assertEquals(hg.getLista(), lista);
     }
 
     @Test
     public void luodutHirviotToimivat() {
-        hirvio h = hg.getLista().get(0);
+        Hirvio h = hg.getLista().get(0);
         h.siirra(0, 0);
 
         //X-AKSELI
-        if (h.getX() <= 2 && h.getX() >= 0) {
+        if (h.getX() <= 25 && h.getX() >= 0) {
             assertEquals(true, true);
         } else {
             assertEquals(false, true);
         }
 
         //Y-AKSELI
-        if (h.getY() <= 2 && h.getY() >= 0) {
+        if (h.getY() <= 25 && h.getY() >= 0) {
             assertEquals(true, true);
         } else {
             assertEquals(false, true);

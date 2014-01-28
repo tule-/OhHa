@@ -1,6 +1,9 @@
 package logiikka;
 
-public class voimakentta {
+import grafiikka.VoimakenttaKuva;
+import java.awt.Graphics;
+
+public class Voimakentta {
     private int X1 = 10000;
     private int Y1 = 10000;
     
@@ -29,17 +32,17 @@ public class voimakentta {
     
     //PELAAJAN KOORDINAATIT
     public void hyokkaa(int x, int y){
-        this.X1 = x + 1;
+        this.X1 = x + 25;
         this.Y1 = y;
         
-        this.X2 = x - 1;
+        this.X2 = x - 25;
         this.Y2 = y;
         
         this.X3 = x;
-        this.Y3 = y + 1;
+        this.Y3 = y + 25;
         
         this.X4 = x;
-        this.Y4 = y - 1;
+        this.Y4 = y - 25;
     }
     
     
@@ -74,5 +77,14 @@ public class voimakentta {
     
     public int getY4(){
         return Y4;
+    }
+    
+    public void piirra(Graphics graphics) {
+        VoimakenttaKuva kuva = new VoimakenttaKuva();
+        
+        kuva.getVoimakentta(graphics, X1, Y1);
+        kuva.getVoimakentta(graphics, X2, Y2);
+        kuva.getVoimakentta(graphics, X3, Y3);
+        kuva.getVoimakentta(graphics, X4, Y4);
     }
 }

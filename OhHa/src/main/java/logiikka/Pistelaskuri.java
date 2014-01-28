@@ -1,9 +1,9 @@
 package logiikka;
 
-public class pistelaskuri {
+public class Pistelaskuri {
     private int pisteet;
     
-    public pistelaskuri(){
+    public Pistelaskuri(){
         this.pisteet = 0;
     }
     

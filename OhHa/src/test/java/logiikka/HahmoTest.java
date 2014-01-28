@@ -1,20 +1,17 @@
 package logiikka;
 
 import java.awt.Graphics;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class hahmoTest {
+public class HahmoTest {
 
-    private hahmo h;
+    private Hahmo h;
 
     @Before
     public void setUp() {
-        this.h = new hahmo(1, 2) {
+        this.h = new Hahmo(1, 2) {
             @Override
             public void piirra(Graphics graphics) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -58,6 +55,4 @@ public class hahmoTest {
         assertEquals(0, h.getX());
         assertEquals(2, h.getY());
     }
-    
-    //LISÄTÄÄN TESTIT GRAAFISELLE KÄYTTÖLIITTYMÄLLE MYÖHEMMIN
 }
