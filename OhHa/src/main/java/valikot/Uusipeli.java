@@ -16,7 +16,7 @@ public class Uusipeli implements Runnable {
     
     @Override
     public void run() {
-        this.frame = new JFrame("Seppo Peli 0.1");
+        this.frame = new JFrame("Seppo Peli");
         
         frame.setPreferredSize(new Dimension(130, 160));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -35,7 +35,7 @@ public class Uusipeli implements Runnable {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         
-        JLabel info = new JLabel("    SEPPO PELI 0.1");
+        JLabel info = new JLabel("    SEPPO PELI 0.7");
         JLabel tekija = new JLabel("           by TuBa");
         JLabel tyhja = new JLabel(" ");
         JLabel tyhja2 = new JLabel(" ");
