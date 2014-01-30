@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import logiikka.HirvioGeneraattori;
-import logiikka.Kuuntelija;
+import kuuntelijat.Pelikuuntelija;
 import logiikka.Voimakentta;
 
 public class Kayttoliittyma implements Runnable{
@@ -54,7 +54,7 @@ public class Kayttoliittyma implements Runnable{
     }
     
     public void lisaaKuuntelija(){
-        frame.addKeyListener(new Kuuntelija(frame, p, hg, vk));
+        frame.addKeyListener(new Pelikuuntelija(frame, p, hg, vk));
     }
     
     public JFrame getFrame(){

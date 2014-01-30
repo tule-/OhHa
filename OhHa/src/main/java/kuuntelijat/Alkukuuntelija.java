@@ -1,4 +1,4 @@
-package valikot;
+package kuuntelijat;
 
 import hahmot.Pelaaja;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import logiikka.HirvioGeneraattori;
 import logiikka.Voimakentta;
 import ohha.ohha.Kayttoliittyma;
+import valikot.Sepontarina;
 
 public class Alkukuuntelija implements ActionListener {
 

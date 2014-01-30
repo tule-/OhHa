@@ -1,4 +1,4 @@
-package valikot;
+package kuuntelijat;
 
 import hahmot.Pelaaja;
 import java.awt.event.ActionEvent;

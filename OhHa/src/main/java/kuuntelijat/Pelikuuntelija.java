@@ -1,4 +1,4 @@
-package logiikka;
+package kuuntelijat;
 
 import valikot.Peliloppu;
 import hahmot.Hirvio;
@@ -6,8 +6,12 @@ import hahmot.Pelaaja;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import logiikka.HirvioGeneraattori;
+import logiikka.Kuolema;
+import logiikka.Pistelaskuri;
+import logiikka.Voimakentta;
 
-public class Kuuntelija implements KeyListener {
+public class Pelikuuntelija implements KeyListener {
 
     private Component Component;
     private int laskuri = 10;
@@ -18,7 +22,7 @@ public class Kuuntelija implements KeyListener {
     private Voimakentta vk;
     private Pistelaskuri pl;
 
-    public Kuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk) {
+    public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk) {
         this.Component = component;
         this.p = p;
         this.hg = hg;

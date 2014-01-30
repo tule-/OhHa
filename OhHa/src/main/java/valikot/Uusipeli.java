@@ -1,5 +1,7 @@
 package valikot;
 
+import kuuntelijat.Alkukuuntelija;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -17,7 +19,7 @@ public class Uusipeli implements Runnable {
     public void run() {
         this.frame = new JFrame("Seppo Peli 0.1");
         
-        frame.setPreferredSize(new Dimension(250, 200));
+        frame.setPreferredSize(new Dimension(130, 160));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -34,13 +36,17 @@ public class Uusipeli implements Runnable {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         
-        JLabel info = new JLabel("SEPPO PELI");
-        JLabel tekija = new JLabel("by TuBa");
+        JLabel info = new JLabel("    SEPPO PELI 0.1");
+        JLabel tekija = new JLabel("           by TuBa");
+        JLabel tyhja = new JLabel(" ");
+        JLabel tyhja2 = new JLabel(" ");
         JButton tarina = new JButton("Sepon tarina");
         JButton uusi = new JButton("Aloita peli");
         
         container.add(info);
         container.add(tekija);
+        container.add(tyhja);
+        container.add(tyhja2);
         container.add(uusi);
         container.add(tarina);
 
