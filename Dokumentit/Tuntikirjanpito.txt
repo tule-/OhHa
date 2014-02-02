@@ -20,3 +20,8 @@ TUNTIKIRJANPITO
 *26.01.14 - 4h - ..testiä - Siirtymä graafiseen liittymään. Testit tulee päivittää.
 *27.01.14 - 2h - ..testiä - Alku- ja loppuvalikko lisätty. Luokkien nimet korjattu alkamaan isolla.
 *28.01.14 - 1h - 38testiä - Testit päivitetty.
+*30.01.13 - 3h - 38testiä - Epämääräistä säätöä. Inforuutu lisätty pelikentän alalaitaan.
+*31.01.14 - 1h - 38testiä - Paranneltu voimakenttää. Hirviöiden spawnaaminen korjattu vastaamaan suunnitelmaa.
+*01.02.14 - 1h - 38testiä - Testit päivitetty.
+*02.02.14 - 2h - 41testiä - Säätöä koodiin ja testeihin.
+*02.02.14 - 1h - 41testiä - Hirviöt liikkuvat kellon mukaan.

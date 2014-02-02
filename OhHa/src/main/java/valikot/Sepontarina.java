@@ -36,14 +36,14 @@ public class Sepontarina  implements Runnable{
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         
-        JLabel info = new JLabel("Eräänä iltana Sepon lennettyä tavalliseen tapaan");
-        JLabel info2 = new JLabel("ulos kantabaaristaan ja ryömittyään tuttuun katu-");
-        JLabel info3 = new JLabel("ojaan. Hän päätti ottaa pienet nokoset kotoisassa");
+        JLabel info = new JLabel("Eräänä iltana tavalliseen tapaansa Seppo lensi");
+        JLabel info2 = new JLabel("ulos kantabaaristaan ja ryömi tuttuun katuojaan.");
+        JLabel info3 = new JLabel("Hän päätti ottaa pienet nokoset kotoisassa");
         JLabel info4 = new JLabel("viemärivedessä.");
         JLabel info5 = new JLabel(" ");
-        JLabel info6 = new JLabel("Herättyään Seppo kompuroi ylos ja huomasi olevansa");
+        JLabel info6 = new JLabel("Herättyään Seppo kompuroi ylös ja huomasi olevansa");
         JLabel info7 = new JLabel("keskellä mitä voisi vain kuvailla areenaksi.");
-        JLabel info8 = new JLabel("Kauhukseen Seppo näkee seinällä suuaukon josta");
+        JLabel info8 = new JLabel("Kauhukseen Seppo näkee seinällä suuaukon, josta");
         JLabel info9 = new JLabel("kantautuu pahaenteistä murinaa.");
         JLabel info10 = new JLabel(" ");
         JLabel info11 = new JLabel("Onko tämä kaikkien aikojen pahin liskojen yö");

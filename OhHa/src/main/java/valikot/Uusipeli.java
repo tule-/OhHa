@@ -35,7 +35,7 @@ public class Uusipeli implements Runnable {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         
-        JLabel info = new JLabel("    SEPPO PELI 0.7");
+        JLabel info = new JLabel("    SEPPO PELI 1.0");
         JLabel tekija = new JLabel("           by TuBa");
         JLabel tyhja = new JLabel(" ");
         JLabel tyhja2 = new JLabel(" ");

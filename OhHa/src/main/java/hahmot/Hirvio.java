@@ -8,18 +8,30 @@ import logiikka.Hahmo;
 public class Hirvio extends Hahmo {
     
     public Hirvio(){
-        super(0,0);
+        super(0,300);
+    }
+    
+    public Hirvio(int x){
+        super(775,300);
+    }
+    
+    public Hirvio(String x){
+        super(400,0);
+    }
+    
+    public Hirvio(double x){
+        super(400,575);
     }
     
     @Override
     public void siirra(int dx, int dy){
         
         Random r = new Random();
-        dx = r.nextInt(3) - 1;
-        dy = r.nextInt(3) - 1;
+        int x = r.nextInt(3) - 1;
+        int y = r.nextInt(3) - 1;
         
-        if(this.getX() + dx <= 775 && this.getX() + dx >= 0 && this.getY() + dy <= 575 && this.getY() + dy >= 0){
-            super.siirra(dx * 25, dy * 25);
+        if(this.getX() + x <= 775 && this.getX() + x >= 0 && this.getY() + y <= 575 && this.getY() + y >= 0){
+            super.siirra(x * 25, y * 25);
         }
     }
 

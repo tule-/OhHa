@@ -1,5 +1,6 @@
 package hahmot;
 
+import java.awt.Graphics;
 import logiikka.Hahmo;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,6 +46,37 @@ public class PelaajaTest {
 
         assertEquals(400, p.getX());
         assertEquals(300, p.getY());
+    }
+    
+    @Test
+    public void pelaajaPysyyPelikentanSisalla3(){
+        for (int i = 0; i < 1000; i++) {
+            p.siirra(-25,0);
+        }
+        
+        assertEquals(0, p.getX());
+        assertEquals(300, p.getY());
+        
+        for (int i = 0; i < 1000; i++) {
+            p.siirra(0, -25);
+        }
+        
+        assertEquals(0, p.getX());
+        assertEquals(0, p.getY());
+        
+        for (int i = 0; i < 1000; i++) {
+            p.siirra(25, 0);
+        }
+        
+        assertEquals(775, p.getX());
+        assertEquals(0, p.getY());
+        
+        for (int i = 0; i < 1000; i++) {
+            p.siirra(0, 25);
+        }
+        
+        assertEquals(775, p.getX());
+        assertEquals(575, p.getY());
     }
 
     //LISÄÄ TESTEJÄ KUN GRAFIIKKALIITTYMÄ SAADAAN KASAAN?

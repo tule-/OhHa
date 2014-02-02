@@ -41,14 +41,13 @@ public class HirvioGeneraattoriTest {
         h.siirra(0, 0);
 
         //X-AKSELI
-        if (h.getX() <= 25 && h.getX() >= 0) {
+        if (h.getX() <= 25 && h.getX() >= 0 || h.getX() <= 775 && h.getX() >= 750 || h.getX() <= 425 && h.getX() >= 375 || h.getX() <= 425 && h.getX() >= 375) {
             assertEquals(true, true);
         } else {
             assertEquals(false, true);
         }
-
         //Y-AKSELI
-        if (h.getY() <= 25 && h.getY() >= 0) {
+        if (h.getY() <= 325 && h.getY() >= 275 || h.getY() <= 325 && h.getY() >= 275 || h.getY() <= 25 && h.getY() >= 0 || h.getY() <= 575 && h.getY() >= 550) {
             assertEquals(true, true);
         } else {
             assertEquals(false, true);
@@ -59,12 +58,19 @@ public class HirvioGeneraattoriTest {
     public void lisaaMetodiPalauttaaListan() {
         assertEquals(hg.lisaa(0), hg.getLista());
     }
-    
+
     @Test
-    public void komentotapaHirvioPoistaaHirvionListalta(){
+    public void lisaaMetodiToimiiNegatiivisellaLisayksella() {
+        hg.lisaa(-1); //1 + 2 HIRVIÖTÄ
+        
+        assertEquals(3, hg.getLista().size());
+    }
+
+    @Test
+    public void komentotapaHirvioPoistaaHirvionListalta() {
         hg.lisaa(2); // 1 + 3 HIRVIÖTÄ
         hg.tapaHirvio(1);
-        
+
         assertEquals(3, hg.getLista().size());
     }
 }
