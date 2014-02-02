@@ -1,0 +1,18 @@
+Seppo Peli 1.0
+--------------
+
+Olet Seppo ja heräät jumalattomaan kankkuseen keskellä hirviö areenaa. Tehtävänäsi on selviytyä niin kauan kuin mahdollista
+lähestyvää hirviörintamaa vastaan. Aseenasi on vain pahanhajuinen hengityksesi joka toimii voimakentän tavoin.
+
+Ohjelman käynnistyessä aukeaa aloitusruutu jossa voidaan joko lukea Sepon tarina tai aloittaa suoraan uusi peli.
+
+Pelaaja aloittaa pelikentän keskeltä ja liikkuu neljään suuntaan nuolinäppäimillä. Pelikentän jokaisella laidalla on luolan
+suuaukko josta syntyy hirviöitä. Hirviöt syntyvät joka 10 kierros. Kierroksia indikoi laskuri pelikentän alalaidassa. kierros
+vaihtuu vain pelaajan toiminnan kautta. Hirviöt liikkuvat reaaliajassa noin 2 kertaa sekunnissa.
+
+Pelaajan voimakenttä laukeaa painamalla SPACE-näppäintä ja hirviön osuessa voimakenttään se kuolee. Voimakenttä vaikuttaa 
+pelaajasta nähden ylös, alas, oikealle ja vasemmalle yhden koordinaatin verran. Hirviön kuollessa se katoaa pelistä ja 
+pelaajalle annetaan 10 pistettä. Osuessaan hirviöön pelaaja puolestaan kuolee. Tämän jälkeen siirrytään loppuruutuun jossa
+nähdään lopullinen pistemäärä ja on mahdollisuus pelata uudelleen.
+
+Pelaaja eikä hirviö voi liikkua pelikentän ulkopuolelle.
