@@ -4,14 +4,32 @@ import hahmot.Hirvio;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Hirviögeneraattori hoitaa hirviöiden luomisen
+ * ja poistamisen listan avulla.
+ * 
+ * @author Tuomas Lehtinen
+ */
 public class HirvioGeneraattori {
-
+    /**
+     * Lista johon hirviöt talletetaan
+     */
     private ArrayList<Hirvio> hirviot;
 
     public HirvioGeneraattori() {
         this.hirviot = new ArrayList<>();
     }
 
+    /**
+     * Lisää hirviön listaan. 
+     * 
+     * Lisättävän hirviön paikka
+     * pelikentällä määräytyy sattumanvaraisesti.
+     * 
+     * @param maara lisättävien hirviöiden määrä
+     * 
+     * @return lista joka sisältää uudet hirviöt
+     */
     public ArrayList<Hirvio> lisaa(int maara) {
         for (int i = 0; i <= Math.abs(maara); i++) {
 
@@ -39,6 +57,12 @@ public class HirvioGeneraattori {
         return hirviot;
     }
 
+    /**
+     * Metodi poistaa parametria vastaavan hirviön
+     * listalta.
+     * 
+     * @param i määrää poistettavan hirviön.
+     */
     public void tapaHirvio(int i) {
         hirviot.remove(i);
     }

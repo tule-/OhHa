@@ -25,3 +25,4 @@ TUNTIKIRJANPITO
 *01.02.14 - 1h - 38testiä - Testit päivitetty.
 *02.02.14 - 2h - 41testiä - Säätöä koodiin ja testeihin.
 *02.02.14 - 1h - 41testiä - Hirviöt liikkuvat kellon mukaan.
+*03.02.14 - 1h - 41testiä - JavaDocit luokille pakkauksissa logiikka ja hahmot.

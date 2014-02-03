@@ -2,6 +2,13 @@ package logiikka;
 
 import java.awt.Graphics;
 
+/**
+ * Luokka muodostaa hahmon joka on perusrakenne
+ * pelaajalle ja hirviölle. 
+ * Hahmoa voidaan siirtää ja se voidaan piirtää.
+ * 
+ * @author Tuomas Lehtinen
+ */
 public abstract class Hahmo {
 
     private int X;
@@ -11,7 +18,14 @@ public abstract class Hahmo {
         this.X = x;
         this.Y = y;
     }
-
+/**
+ * Metodi muuttaa hahmon koordinaatteja niin, että
+ * niihin lisätään parametreina annetut arvot.
+ * 
+ * @param dx x-akselin haluttu muutos
+ * 
+ * @param dy y-akselin haluttu muutos
+ */
     public void siirra(int dx, int dy) {
         X += dx;
         Y += dy;
