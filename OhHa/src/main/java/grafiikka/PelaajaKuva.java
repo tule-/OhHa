@@ -3,8 +3,18 @@ package grafiikka;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Piirtää pelaajan.
+ */
 public class PelaajaKuva {
 
+    /**
+     * Piirtää kuvan.
+     * 
+     * @param graphics
+     * @param x pelaajan x-koordinaatti
+     * @param y pelaajan y-koordinaatti
+     */
     public void getPelaaja(Graphics graphics, int x, int y) {
         //PELAAJA VARAA 25X25 ALUEEN KENTÄLTÄ
         graphics.setColor(Color.BLACK);

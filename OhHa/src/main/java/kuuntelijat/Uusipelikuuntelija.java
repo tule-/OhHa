@@ -9,6 +9,12 @@ import logiikka.HirvioGeneraattori;
 import logiikka.Voimakentta;
 import ohha.ohha.Kayttoliittyma;
 
+/**
+ * Kuuntelija joka aloittaa uuden pelin.
+ * 
+ * Uusipelikuuntelija toimii Sepontarina -
+ * sekä Peliloppui-ruudussa.
+ */
 public class Uusipelikuuntelija implements ActionListener{
     
     private JFrame frame;

@@ -7,8 +7,6 @@ import java.util.Random;
 /**
  * Hirviögeneraattori hoitaa hirviöiden luomisen
  * ja poistamisen listan avulla.
- * 
- * @author Tuomas Lehtinen
  */
 public class HirvioGeneraattori {
     /**

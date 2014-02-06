@@ -13,22 +13,43 @@ import logiikka.HirvioGeneraattori;
 import kuuntelijat.Pelikuuntelija;
 import logiikka.Voimakentta;
 
+/**
+ * Vastaa pelikentän, pelaajan, hirviögeneraattorin ja voimakentän
+ * lisäämisen sekä alustaa kuuntelijat.
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private Pelaaja p;
     private HirvioGeneraattori hg;
     private Voimakentta vk;
+    /**
+     * Inforuutu pelikentän alalaitaan.
+     */
     private JLabel info;
 
+    /**
+     * Alustaa pelaajan, hirviögeneraattorin ja voimakentän.
+     * 
+     * Lisää myös inforuudulle pelin aloitusviestin.
+     * 
+     * @param p pelaaja
+     * @param hg hirviögeneraattori
+     * @param vk voimakenttä
+     */
     public Kayttoliittyma(Pelaaja p, HirvioGeneraattori hg, Voimakentta vk) {
         this.p = p;
         this.hg = hg;
         this.vk = vk;
 
-        this.info = new JLabel("Pisteet: 0     ||     Peli Alkoi     ||     Uusi hirviö: 10");
+        this.info = new JLabel("Peli alkoi!");
     }
 
+    /**
+     * Rakentaa pelin ja näyttää sen.
+     * 
+     * Määrätään myös pelikentän paikan näytöllä.
+     */
     @Override
     public void run() {
         frame = new JFrame();
@@ -50,12 +71,24 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Luo komponentit.
+     * 
+     * Sisältää pelikentän sekä inforuudun.
+     * 
+     * @param container 
+     */
     public void luoKomponentit(Container container) {
         Pelikentta pk = new Pelikentta(p, hg, vk);
         container.add(pk);
         container.add(info, BorderLayout.SOUTH);
     }
 
+    /**
+     * Lisää Pelikuuntelijan.
+     * 
+     * Pelikuuntelija pyörittää peliä.
+     */
     public void lisaaKuuntelija() {
         frame.addKeyListener(new Pelikuuntelija(frame, p, hg, vk, info));
     }

@@ -10,6 +10,12 @@ import logiikka.Voimakentta;
 import ohha.ohha.Kayttoliittyma;
 import valikot.Sepontarina;
 
+/**
+ * Pelin aloitus kuuntelija.
+ * 
+ * Voidaan valita aloitetaanko uusi peli vai
+ * luetaanko Sepon tarina.
+ */
 public class Alkukuuntelija implements ActionListener {
 
     private JFrame frame;

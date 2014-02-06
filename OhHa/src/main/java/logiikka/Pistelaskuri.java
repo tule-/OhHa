@@ -4,8 +4,6 @@ package logiikka;
  * Pistelaskuri hoitaan pisteiden laskemisen.
  * 
  * Se voi lisätä pisteitä ja näyttää ne.
- * 
- * @author Tuomas Lehtinen
  */
 public class Pistelaskuri {
     private int pisteet;

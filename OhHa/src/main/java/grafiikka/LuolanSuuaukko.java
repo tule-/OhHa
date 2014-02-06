@@ -3,8 +3,16 @@ package grafiikka;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Piirtää luolat pelikentälle.
+ */
 public class LuolanSuuaukko {
     
+    /**
+     * Piirtää kuvan.
+     * 
+     * @param graphics 
+     */
     public void getLuolanSuuaukko(Graphics graphics){
         graphics.setColor(Color.LIGHT_GRAY);
         

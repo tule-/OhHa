@@ -6,8 +6,6 @@ import java.awt.Graphics;
  * Luokka muodostaa hahmon joka on perusrakenne
  * pelaajalle ja hirviölle. 
  * Hahmoa voidaan siirtää ja se voidaan piirtää.
- * 
- * @author Tuomas Lehtinen
  */
 public abstract class Hahmo {
 

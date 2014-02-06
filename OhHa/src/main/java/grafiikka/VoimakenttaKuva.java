@@ -3,8 +3,18 @@ package grafiikka;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Piirtää voimakentän kuvan.
+ */
 public class VoimakenttaKuva {
 
+    /**
+     * Piirtää kuvan.
+     * 
+     * @param graphics
+     * @param x voimakentän x-koordinaatti
+     * @param y voimakentän y-koordinaatti
+     */
     public void getVoimakentta(Graphics graphics, int x, int y) {
         //VOIMAKENTTA VARAA 25x25 ALUEEN KENTÄLTÄ
         graphics.setColor(Color.BLACK);

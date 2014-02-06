@@ -11,8 +11,6 @@ import java.awt.Graphics;
  * tai pelaajan ympärillä.
  * 
  * Voimakenttä on aluksi pelikentän ulkopuolella.
- * 
- * @author Tuomas Lehtinen
  */
 public class Voimakentta {
     private int X1 = 10000;

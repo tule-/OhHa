@@ -14,8 +14,6 @@ import logiikka.Hahmo;
  * koordinaatit.
  * 
  * Luokka perii luokan hahmo ominaisuudet.
- * 
- * @author Tuomas Lehtinen
  */
 public class Hirvio extends Hahmo {
     /**

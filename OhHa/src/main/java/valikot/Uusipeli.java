@@ -10,10 +10,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
+/**
+ * Pelin käynnistyksen yhteydessä aukeava valikko.
+ * 
+ * Mahdollisuus aloittaa peli tai lukea Sepon tarina.
+ */
 public class Uusipeli implements Runnable {
     
     private JFrame frame;
     
+    /**
+     * Luo valikon sekä kaikki sen ominaisuudet.
+     */
     @Override
     public void run() {
         this.frame = new JFrame("Seppo Peli");
@@ -31,6 +39,11 @@ public class Uusipeli implements Runnable {
         frame.setVisible(true);
     }
     
+    /**
+     * Luo valikon komponentit.
+     * 
+     * @param container 
+     */
     public void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);

@@ -9,8 +9,6 @@ import logiikka.Hahmo;
  * se voidaan piirtää.
  * 
  * Luokka perii luokan Hahmo ominaisuudet.
- * 
- * @author Tuomas Lehtinen
  */
 public class Pelaaja extends Hahmo {
 

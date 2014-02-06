@@ -3,8 +3,18 @@ package grafiikka;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Piirtää hirviön kuvan.
+ */
 public class HirvioKuva {
 
+    /**
+     * Piirtää kuvan.
+     * 
+     * @param graphics 
+     * @param x hirviön x-koordinaatti
+     * @param y hirviön y-koordinaatti
+     */
     public void getHirvio(Graphics graphics, int x, int y) {
         //HIRVIÖ VARAA 25X25 ALUEEN KENTÄLTÄ
         graphics.setColor(Color.BLACK);

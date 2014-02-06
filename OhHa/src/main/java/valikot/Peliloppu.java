@@ -11,22 +11,40 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
+/**
+ * Pelin loppu valikko.
+ *
+ * Valikko tulee Sepon kuoleman jälkeen. Se näyttää pelaajan lopulliset pisteet
+ * sekä antaa mahdollisuuden pelata uudelleen.
+ */
 public class Peliloppu implements Runnable {
 
     private JFrame frame;
+    
+    /**
+     * Alustetaan pisteet.
+     */
     private int pisteet = 0;
 
+    /**
+     * Haetaan pelaajan pisteet.
+     *
+     * @param pisteet pelaajan lopulliset pisteet
+     */
     public void getPisteet(int pisteet) {
         this.pisteet = pisteet;
     }
 
+    /**
+     * Luo valikon, asettaa sen koon sekä lisää komponentit.
+     */
     @Override
     public void run() {
         this.frame = new JFrame("Game Over!");
 
         frame.setPreferredSize(new Dimension(300, 160));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
+
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
         frame.setLocation(screenSize.width / 3, screenSize.height / 3);
@@ -37,10 +55,15 @@ public class Peliloppu implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Luo valikkoon sisällytettävät komponentit.
+     * 
+     * @param container 
+     */
     public void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
-        
+
         JLabel loppu = new JLabel("Peli loppui, hirviöt saivat Sepon!");
         JLabel loppu2 = new JLabel("Seppo ei tule koskaan heräämään");
         JLabel loppu3 = new JLabel("tästä painajaisesta.");

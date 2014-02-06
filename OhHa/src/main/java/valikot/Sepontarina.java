@@ -11,10 +11,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
+/**
+ * Pelaaja voi lukea Sepon sydäntä särkevän tarinan.
+ * 
+ * Ruudun alalaidassa on painike jolla pelaaja aloittaa
+ * uuden pelin.
+ */
 public class Sepontarina  implements Runnable{
     
     private JFrame frame;
     
+    /**
+     * Luo ruudun, asettaa sen dimensiot sekä lisää komponentit.
+     */
     @Override
     public void run() {
         this.frame = new JFrame("Seppon tarina");
@@ -32,6 +41,13 @@ public class Sepontarina  implements Runnable{
         frame.setVisible(true);
     }
     
+    /**
+     * Luo valikkoon lisättävät komponentit.
+     * 
+     * Sisältää pääasiassa tekstiä.
+     * 
+     * @param container 
+     */
     public void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);

@@ -14,6 +14,12 @@ import logiikka.Kuolema;
 import logiikka.Pistelaskuri;
 import logiikka.Voimakentta;
 
+/**
+ * Pelikuuntelija vastaa pelin pyörittämisestä.
+ *
+ * Se kuuntelee napin painalluksia sekä piirtää komponentit ruudulle uudelleen
+ * joka painalluksen jälkeen.
+ */
 public class Pelikuuntelija implements KeyListener {
 
     private Component Component;
@@ -25,6 +31,15 @@ public class Pelikuuntelija implements KeyListener {
     private JLabel info;
     private Timer timer;
 
+    /**
+     * Alustaa pelaajan, hirviögeneraattorin, voimakentän sekä inforuudun.
+     *
+     * @param component
+     * @param p pelaaja
+     * @param hg hirviögeneraattori
+     * @param vk voimakenttä
+     * @param info inforuutu
+     */
     public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk, JLabel info) {
         this.Component = component;
         this.p = p;
@@ -41,13 +56,20 @@ public class Pelikuuntelija implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
+    /**
+     * Kuuntelee napin painalluksia.
+     * 
+     * @param e painettu nappi.
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         Kuolema k = new Kuolema();
         Peliloppu loppu = new Peliloppu();
 
 
-        //PELAAJAN
+        /**
+         * Pelaajan liike.
+         */
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             p.siirra(0, -25);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -61,10 +83,11 @@ public class Pelikuuntelija implements KeyListener {
         }
 
 
-        //KELLO HIRVIÖIDEN LIIKKEELLE
+        /**
+         * Kello jonka mukaan hirviöt liikkuvat.
+         */
         if (laskuri == 11) {
             TimerTask task = new TimerTask() {
-                
                 @Override
                 public void run() {
                     for (Hirvio h1 : hg.getLista()) {
@@ -72,13 +95,14 @@ public class Pelikuuntelija implements KeyListener {
                     }
                     Component.repaint();
                 }
-                
             };
             timer.schedule(task, java.util.Calendar.getInstance().getTime(), 450);
         }
 
 
-        //KUOLEMA TARKISTUS PELAAJALLE JA HIRVIÖLLE
+        /**
+         * Kuolema tarkistus pelaajalle.
+         */
         for (Hirvio h1 : hg.getLista()) {
             if (k.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
                 loppu.getPisteet(pl.getPisteet());
@@ -87,6 +111,9 @@ public class Pelikuuntelija implements KeyListener {
             }
         }
 
+        /**
+         * Kuolema tarkistus hirviölle.
+         */
         for (int i = 0; i < hg.getLista().size(); i++) {
             if (k.hirviokuollut(hg.getLista().get(i).getX(), hg.getLista().get(i).getY(), vk) == true) {
                 hg.tapaHirvio(i);
@@ -109,15 +136,25 @@ public class Pelikuuntelija implements KeyListener {
         }
 
 
-        //INFO NÄYTÖLLE
-        info.setText("Pisteet: " + pl.getPisteet() + "     ||     " + "pelaaja: " + p.getX() + " " + p.getY() + "     ||     Uusi hirviö: " + laskuri);
+        /**
+         * Inforuudulla näkyvät tiedot.
+         */
+        info.setText("Pisteet: " + pl.getPisteet() + "     ||     Uusi hirviö: " + laskuri);
 
 
         Component.repaint();
     }
 
+    /**
+     * Kuuntelee irroitettuja nappeja.
+     * 
+     * @param e irroitettu nappi
+     */
     @Override
     public void keyReleased(KeyEvent e) {
+        /**
+         * Nollaa voimakentän sen jälkeen kun se on laukaistu.
+         */
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             vk.nollaa();
         }

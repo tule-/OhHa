@@ -7,8 +7,6 @@ package logiikka;
  * Kuolema tarkistaa koordinaattien avulla
  * osuuko pelaaja hirviöön tai hirviö
  * voimakenttään.
- * 
- * @author Tuomas Lehtinen
  */
 public class Kuolema {
 
