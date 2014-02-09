@@ -28,6 +28,7 @@ public class Pelikuuntelija implements KeyListener {
     private Voimakentta vk;
     private Pistelaskuri pl;
     private int laskuri = 11;
+    private int tarkistaja = 1;
     private JLabel info;
     private Timer timer;
 
@@ -58,7 +59,7 @@ public class Pelikuuntelija implements KeyListener {
 
     /**
      * Kuuntelee napin painalluksia.
-     * 
+     *
      * @param e painettu nappi.
      */
     @Override
@@ -88,10 +89,18 @@ public class Pelikuuntelija implements KeyListener {
          */
         if (laskuri == 11) {
             TimerTask task = new TimerTask() {
+                Kuolema k = new Kuolema();
+
                 @Override
                 public void run() {
+                    /**
+                     * Hirviöiden liike.
+                     */
                     for (Hirvio h1 : hg.getLista()) {
                         h1.siirra(0, 0);
+                        if (k.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
+                            tarkistaja = 0;
+                        }
                     }
                     Component.repaint();
                 }
@@ -103,13 +112,20 @@ public class Pelikuuntelija implements KeyListener {
         /**
          * Kuolema tarkistus pelaajalle.
          */
-        for (Hirvio h1 : hg.getLista()) {
-            if (k.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
-                loppu.getPisteet(pl.getPisteet());
-                loppu.run();
-                Component.setVisible(false);
+        if (tarkistaja == 0) {
+            loppu.getPisteet(pl.getPisteet());
+            loppu.run();
+            Component.setVisible(false);
+        } else {
+            for (Hirvio h1 : hg.getLista()) {
+                if (k.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
+                    loppu.getPisteet(pl.getPisteet());
+                    loppu.run();
+                    Component.setVisible(false);
+                }
             }
         }
+
 
         /**
          * Kuolema tarkistus hirviölle.
@@ -147,7 +163,7 @@ public class Pelikuuntelija implements KeyListener {
 
     /**
      * Kuuntelee irroitettuja nappeja.
-     * 
+     *
      * @param e irroitettu nappi
      */
     @Override

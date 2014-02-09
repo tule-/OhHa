@@ -2,111 +2,87 @@ package logiikka;
 
 import grafiikka.VoimakenttaKuva;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 /**
- * Voimakenttä luokka määrää voimakentän
- * toiminnan pelikentällä.
- * 
- * Voimakenttä on joko pelikentän ulkopuolella
- * tai pelaajan ympärillä.
- * 
+ * Voimakenttä luokka määrää voimakentän toiminnan pelikentällä.
+ *
+ * Voimakenttä on joko pelikentän ulkopuolella tai pelaajan ympärillä.
+ *
  * Voimakenttä on aluksi pelikentän ulkopuolella.
  */
 public class Voimakentta {
-    private int X1 = 10000;
-    private int Y1 = 10000;
-    private int X2 = 10000;
-    private int Y2 = 10000;
-    private int X3 = 10000;
-    private int Y3 = 10000;
-    private int X4 = 10000;
-    private int Y4 = 10000;
+
+    ArrayList<Integer> voimakentta;
+
+    public Voimakentta() {
+        this.voimakentta = new ArrayList<>();
+        for (int i = 0; i <= 7; i++) {
+            voimakentta.add(10000);
+        }
+    }
 
     /**
      * Metodi nollaa voimakentän eli asettaa sen arvot pelikentän pelikentän
      * ulkopuolelle.
      */
     public void nollaa() {
-        this.X1 = 10000;
-        this.Y1 = 10000;
+        voimakentta.clear();
 
-        this.X2 = 10000;
-        this.Y2 = 10000;
-
-        this.X3 = 10000;
-        this.Y3 = 10000;
-
-        this.X4 = 10000;
-        this.Y4 = 10000;
+        for (int i = 0; i <= 7; i++) {
+            voimakentta.add(10000);
+        }
     }
 
     /**
      * Metodi asettaa voimakentän pelikentälle.
-     * 
-     * Parametreinä se saa pelaajan koordinaatit ja se vaikuttaa 
-     * pelaajasta yhden koordinaatin verran ylös, alas, vasemmalle ja oikealle.
-     * 
+     *
+     * Parametreinä se saa pelaajan koordinaatit ja se vaikuttaa pelaajasta
+     * yhden koordinaatin verran ylös, alas, vasemmalle ja oikealle.
+     *
      * @param x pelaajan x-koordinaatti
-     * 
+     *
      * @param y pelaajan y-koordinaatti
      */
     public void hyokkaa(int x, int y) {
-        this.X1 = x + 25;
-        this.Y1 = y;
+        voimakentta.clear();
 
-        this.X2 = x - 25;
-        this.Y2 = y;
-
-        this.X3 = x;
-        this.Y3 = y + 25;
-
-        this.X4 = x;
-        this.Y4 = y - 25;
+        for (int i = 0; i <= 7; i++) {
+            if (i == 0) {
+                voimakentta.add(x + 25);
+            } else if (i == 1) {
+                voimakentta.add(y);
+            } else if (i == 2) {
+                voimakentta.add(x - 25);
+            } else if (i == 3) {
+                voimakentta.add(y);
+            } else if (i == 4) {
+                voimakentta.add(x);
+            } else if (i == 5) {
+                voimakentta.add(y + 25);
+            } else if (i == 6) {
+                voimakentta.add(x);
+            } else if (i == 7) {
+                voimakentta.add(y - 25);
+            }
+        }
     }
 
-    public int getX1() {
-        return X1;
-    }
-
-    public int getY1() {
-        return Y1;
-    }
-
-    public int getX2() {
-        return X2;
-    }
-
-    public int getY2() {
-        return Y2;
-    }
-
-    public int getX3() {
-        return X3;
-    }
-
-    public int getY3() {
-        return Y3;
-    }
-
-    public int getX4() {
-        return X4;
-    }
-
-    public int getY4() {
-        return Y4;
+    public ArrayList<Integer> getVoimakentta() {
+        return voimakentta;
     }
 
     /**
      * Piirtää voimakentän pelikentälle.
-     * 
-     * @param graphics 
+     *
+     * @param graphics
      */
     public void piirra(Graphics graphics) {
         VoimakenttaKuva kuva = new VoimakenttaKuva();
 
-        kuva.getVoimakentta(graphics, X1, Y1);
-        kuva.getVoimakentta(graphics, X2, Y2);
-        kuva.getVoimakentta(graphics, X3, Y3);
-        kuva.getVoimakentta(graphics, X4, Y4);
+        kuva.getVoimakentta(graphics, voimakentta.get(0), voimakentta.get(1));
+        kuva.getVoimakentta(graphics, voimakentta.get(2), voimakentta.get(3));
+        kuva.getVoimakentta(graphics, voimakentta.get(4), voimakentta.get(5));
+        kuva.getVoimakentta(graphics, voimakentta.get(6), voimakentta.get(7));
     }
 }

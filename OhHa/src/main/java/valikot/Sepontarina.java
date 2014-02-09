@@ -59,7 +59,7 @@ public class Sepontarina  implements Runnable{
         JLabel info5 = new JLabel(" ");
         JLabel info6 = new JLabel("Herättyään Seppo kompuroi ylös ja huomasi olevansa");
         JLabel info7 = new JLabel("keskellä mitä voisi vain kuvailla areenaksi.");
-        JLabel info8 = new JLabel("Kauhukseen Seppo näkee seinällä suuaukon, josta");
+        JLabel info8 = new JLabel("Kauhukseen Seppo näkee seinillä suuaukkoja, joista");
         JLabel info9 = new JLabel("kantautuu pahaenteistä murinaa.");
         JLabel info10 = new JLabel(" ");
         JLabel info11 = new JLabel("Onko tämä kaikkien aikojen pahin liskojen yö");
