@@ -1,13 +1,17 @@
 package valikot;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import kuuntelijat.Alkukuuntelija;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 /**
@@ -24,9 +28,9 @@ public class Uusipeli implements Runnable {
      */
     @Override
     public void run() {
-        this.frame = new JFrame("Seppo Peli");
+        this.frame = new JFrame();
         
-        frame.setPreferredSize(new Dimension(130, 160));
+        frame.setPreferredSize(new Dimension(180, 200));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -34,6 +38,8 @@ public class Uusipeli implements Runnable {
         frame.setLocation(screenSize.width / 3, screenSize.height / 3);
         
         luoKomponentit(frame.getContentPane());
+        
+        frame.getContentPane().setBackground(Color.black);
         
         frame.pack();
         frame.setVisible(true);
@@ -48,19 +54,33 @@ public class Uusipeli implements Runnable {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         
-        JLabel info = new JLabel("    SEPPO PELI 1.0");
-        JLabel tekija = new JLabel("           by TuBa");
-        JLabel tyhja = new JLabel(" ");
-        JLabel tyhja2 = new JLabel(" ");
-        JButton tarina = new JButton("Sepon tarina");
-        JButton uusi = new JButton("Aloita peli");
+        JPanel paneeli= new JPanel(new GridLayout(4, 1));
         
-        container.add(info);
-        container.add(tekija);
-        container.add(tyhja);
-        container.add(tyhja2);
-        container.add(uusi);
-        container.add(tarina);
+        JLabel info = new JLabel("           SEPPO PELI 1.0");
+        info.setBackground(Color.BLACK);
+        info.setForeground(Color.WHITE);
+        info.setOpaque(true);
+        
+        JLabel tyhja = new JLabel("");
+        tyhja.setBackground(Color.BLACK);
+        tyhja.setOpaque(true);
+        
+        JButton uusi = new JButton("Aloita peli");
+        uusi.setBackground(Color.BLACK);
+        uusi.setForeground(Color.WHITE);
+        uusi.setOpaque(true);
+        
+        JButton tarina = new JButton("Sepon tarina");
+        tarina.setBackground(Color.BLACK);
+        tarina.setForeground(Color.WHITE);
+        tarina.setOpaque(true);
+        
+        paneeli.add(info);
+        paneeli.add(tyhja);
+        paneeli.add(uusi);
+        paneeli.add(tarina);
+        
+        container.add(paneeli, BorderLayout.CENTER);
 
         Alkukuuntelija kuuntelija = new Alkukuuntelija(frame, uusi, tarina);
         uusi.addActionListener(kuuntelija);

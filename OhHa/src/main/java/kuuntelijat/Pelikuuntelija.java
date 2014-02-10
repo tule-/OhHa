@@ -30,6 +30,7 @@ public class Pelikuuntelija implements KeyListener {
     private int laskuri = 11;
     private int tarkistaja = 1;
     private JLabel info;
+    private JLabel info2;
     private Timer timer;
 
     /**
@@ -39,9 +40,10 @@ public class Pelikuuntelija implements KeyListener {
      * @param p pelaaja
      * @param hg hirviögeneraattori
      * @param vk voimakenttä
-     * @param info inforuutu
+     * @param info inforuutu 1
+     * @param info2 inforuutu 2
      */
-    public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk, JLabel info) {
+    public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk, JLabel info, JLabel info2) {
         this.Component = component;
         this.p = p;
         this.hg = hg;
@@ -50,6 +52,7 @@ public class Pelikuuntelija implements KeyListener {
         this.pl = new Pistelaskuri();
 
         this.info = info;
+        this.info2 = info2;
         this.timer = new Timer();
     }
 
@@ -155,7 +158,8 @@ public class Pelikuuntelija implements KeyListener {
         /**
          * Inforuudulla näkyvät tiedot.
          */
-        info.setText("Pisteet: " + pl.getPisteet() + "     ||     Uusi hirviö: " + laskuri);
+        info.setText("Pisteet: " + pl.getPisteet());
+        info2.setText("Uusi hirviö: " + laskuri);
 
 
         Component.repaint();
