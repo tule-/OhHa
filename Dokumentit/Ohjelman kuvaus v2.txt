@@ -1,4 +1,4 @@
-Seppo Peli 0.9
+Seppo Peli 1.0
 --------------
 
 Olet Seppo ja heräät jumalattomaan kankkuseen keskellä hirviö areenaa. Tehtävänäsi on selviytyä niin kauan kuin mahdollista
