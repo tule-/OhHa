@@ -30,3 +30,4 @@ TUNTIKIRJANPITO
 *09.02.14 - 1h - 34testiä - Voimakenttä luokka refaktoroitu ja vastaavat testit korjattu.
 *09.02.14 - 2h - 34testiä - Bugi löydetty: pelaaja ei kuole jos ei liiku. Noin about korjattu.
 *10.02.14 - 2h - 34testiä - Framet kokivat makeoverin. Kaikki on mustaa...
+*13.02.14 - 1h - 36testiä - Muutamat javaDocit ja testit lisätty.

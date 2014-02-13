@@ -52,4 +52,17 @@ public class VoimakenttaTest {
         ArrayList<Integer> lista = vk.getVoimakentta();
         assertEquals(vk.getVoimakentta(), lista);
     }
+    
+    @Test
+    public void nollaMetodiPalauttaa8PituisenListan(){
+        vk.hyokkaa(25, 25);
+        vk.nollaa();
+        
+        assertEquals(8, vk.getVoimakentta().size());
+    }
+    
+    @Test
+    public void konstruktorissaLuotuListaOn8Pituinen(){
+        assertEquals(8, vk.getVoimakentta().size());
+    }
 }
