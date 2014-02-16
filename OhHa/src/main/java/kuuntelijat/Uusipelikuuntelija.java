@@ -13,7 +13,7 @@ import ohha.ohha.Kayttoliittyma;
  * Kuuntelija joka aloittaa uuden pelin.
  * 
  * Uusipelikuuntelija toimii Sepontarina -
- * sekä Peliloppui-ruudussa.
+ * sekä Peliloppu- ruuduissa.
  */
 public class Uusipelikuuntelija implements ActionListener{
     

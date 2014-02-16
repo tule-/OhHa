@@ -77,10 +77,11 @@ public class Peliloppu implements Runnable {
         varitaLabeli(tyhja);
         JLabel piste = new JLabel("Pisteesi: " + pisteet);
         varitaLabeli(piste);
-        JLabel tyhja2 = new JLabel(" ");
+        JLabel tyhja2 = new JLabel();
         varitaLabeli(tyhja2);
         JButton uusi = new JButton("Pelaa uudelleen?");
         varitaNappi(uusi);
+        uusi.doClick(500);
 
         paneeli.add(loppu);
         paneeli.add(loppu2);

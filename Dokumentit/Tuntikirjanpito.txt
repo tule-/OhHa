@@ -31,3 +31,5 @@ TUNTIKIRJANPITO
 *09.02.14 - 2h - 34testiä - Bugi löydetty: pelaaja ei kuole jos ei liiku. Noin about korjattu.
 *10.02.14 - 2h - 34testiä - Framet kokivat makeoverin. Kaikki on mustaa...
 *13.02.14 - 1h - 36testiä - Muutamat javaDocit ja testit lisätty.
+*15.02.14 - 1h - 36testiä - Korjailtu koodikatselmoinnissa löytyneitä bugeja. Kiitokset siitä! "Ominaisuus" 
+                            massatuottaa hirviöitä spämmäämällä nappeja kuitenkin jätetty :)

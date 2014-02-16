@@ -1,0 +1,8 @@
+Testausdokumentti
+-----------------
+
+Luokissa Hirvio ja HirvioGeneraattori ongelmia testaamisessa aiheuttaa satunnaislukuggeneraattorit.
+Ne antavat esim. pit-raportissa joka kerta eri prosentin mutanttikattavuudelle.
+
+Graafisia luokkia ja metodeja ei ole testattu ollenkaan. Tämä johtuu siitä, että ne eivät ole missään
+suorassa kytköksessä sovelluslogiikkaan tms.

@@ -72,6 +72,12 @@ public class Pelikuuntelija implements KeyListener {
 
 
         /**
+         * Nollataan voimakenttä.
+         */
+        vk.nollaa();
+        
+        
+        /**
          * Pelaajan liike.
          */
         if (e.getKeyCode() == KeyEvent.VK_UP) {
