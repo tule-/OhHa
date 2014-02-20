@@ -19,13 +19,19 @@ import valikot.Sepontarina;
 public class Alkukuuntelija implements ActionListener {
 
     private JFrame frame;
+    /**
+     * Uuden pelin aloittava nappi.
+     */
     private JButton uusi;
+    /**
+     * Sepon tarinan avaava nappi.
+     */
     private JButton tarina;
 
-    public Alkukuuntelija(JFrame frame, JButton uusipeli, JButton tarina) {
+    public Alkukuuntelija(JFrame frame, JButton uusipeli, JButton sepontarina) {
         this.frame = frame;
         this.uusi = uusipeli;
-        this.tarina = tarina;
+        this.tarina = sepontarina;
     }
 
     @Override

@@ -33,3 +33,5 @@ TUNTIKIRJANPITO
 *13.02.14 - 1h - 36testiä - Muutamat javaDocit ja testit lisätty.
 *15.02.14 - 1h - 36testiä - Korjailtu koodikatselmoinnissa löytyneitä bugeja. Kiitokset siitä! "Ominaisuus" 
                             massatuottaa hirviöitä spämmäämällä nappeja kuitenkin jätetty :)
+*20.02.14 - 2h - 36testiä - Hirviöille lisätty tyhmä tekoäly: jotkut suuttuvat pelaajalle.
+*20.02.14 - 3h - 37testiä - Hirviöiden tekoälyä viilattu. Refaktoroitu muuttujien nimiä.

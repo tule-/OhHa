@@ -107,27 +107,28 @@ public class HirvioTest {
     @Test
     public void hirvioEiLiikuPelikentanUlkopuolelle() {
         for (int i = 0; i < 1000; i++) {
-            h.siirra(i, i);
-        }
 
-        //X-AKSELI
-        if (h.getX() <= 775 && h.getX() >= 0) {
-            assertEquals(true, true);
-        } else {
-            assertEquals(false, true);
-        }
+            h.siirra(0, 0);
 
-        //Y-AKSELI
-        if (h.getY() <= 575 && h.getY() >= 0) {
-            assertEquals(true, true);
-        } else {
-            assertEquals(false, true);
+            //X-AKSELI
+            if (h.getX() <= 775 && h.getX() >= 0) {
+                assertEquals(true, true);
+            } else {
+                assertEquals(false, true);
+            }
+
+            //Y-AKSELI
+            if (h.getY() <= 575 && h.getY() >= 0) {
+                assertEquals(true, true);
+            } else {
+                assertEquals(false, true);
+            }
         }
     }
 
     @Test
-    public void siirraMetodiEivalitaParametreista() {
-        h.siirra(-1, 10);
+    public void siirraMetodiEivalitaParametreistaJosNeOvatNollat() {
+        h.siirra(0, 0);
 
         int x = h.getX();
         int y = h.getY();
@@ -145,6 +146,39 @@ public class HirvioTest {
         } else {
             assertEquals(300, y);
         }
+    }
+
+    @Test
+    public void siirraMetodiSiirtaaHirviotaKohdenTiettyaPistettaJosParametrinaOnMuutaKuinNollat() {
+        /**
+         * SIIRRYTÄÄN ENSIN KOHDEN PISTETTÄ 100,100, SITTEN KOHDEN PISTETTA 200,
+         * -100 JA LOPUKSI KOHDEN PISTETTÄ -50, 30
+         */
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(100, 100);
+        }
+        //X-AKSELI
+        assertEquals(100, h.getX());
+        //Y-AKSELI
+        assertEquals(100, h.getY());
+
+        
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(200, -100);
+        }
+        //X-AKSELI
+        assertEquals(200, h.getX());
+        //Y-AKSELI
+        assertEquals(-100, h.getY());
+
+        
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(-50, 50);
+        }
+        //X-AKSELI
+        assertEquals(-50, h.getX());
+        //Y-AKSELI
+        assertEquals(50, h.getY());
     }
     //LISÄTÄÄN TESTEJÄ GRAAFISELLELIITTYMÄLLE?
 }

@@ -6,6 +6,7 @@ import hahmot.Pelaaja;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JLabel;
@@ -23,14 +24,36 @@ import logiikka.Voimakentta;
 public class Pelikuuntelija implements KeyListener {
 
     private Component Component;
-    private Pelaaja p;
-    private HirvioGeneraattori hg;
-    private Voimakentta vk;
-    private Pistelaskuri pl;
+    private Pelaaja pelaaja;
+    private HirvioGeneraattori hirvioGen;
+    private Voimakentta voimaKentta;
+    private Pistelaskuri pisteLaskuri;
+    private Kuolema kuolema;
+    private Peliloppu loppu;
+    /**
+     * Laskuri joka hoitaa uuden hirviön spawnaamisen.
+     */
     private int laskuri = 11;
+    /**
+     * Tarkastaja toimii pelaajan kuolema ilmaiseimena
+     * kellon sisällä.
+     */
     private int tarkistaja = 1;
-    private JLabel info;
-    private JLabel info2;
+    /**
+     * Jos vihamoodi on 1 tulevat hirviöt vihaisiksi ja
+     * alkavat jahtaamaan pelaajaa. Vihamoodi kestää 
+     * siihen asti kunnes yksi hirviö tapetaan.
+     */
+    private int vihamoodi = 0;
+    /**
+     * Kolme kpletta infopaneeleja pelikentän ylälaitaan.
+     */
+    private JLabel infoPisteet;
+    private JLabel infoVihaisetHirviot;
+    private JLabel infoUusiHirvio;
+    /**
+     * Kellon muuttuja.
+     */
     private Timer timer;
 
     /**
@@ -43,16 +66,21 @@ public class Pelikuuntelija implements KeyListener {
      * @param info inforuutu 1
      * @param info2 inforuutu 2
      */
-    public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk, JLabel info, JLabel info2) {
+    public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk, JLabel infoPisteet,JLabel infoVihaisetHirviot, JLabel infoUusiHirvio) {
         this.Component = component;
-        this.p = p;
-        this.hg = hg;
+        
+        this.pelaaja = p;
+        this.hirvioGen = hg;
+        
+        this.voimaKentta = vk;
+        this.pisteLaskuri = new Pistelaskuri();
+        this.kuolema = new Kuolema();
+        this.loppu = new Peliloppu();
 
-        this.vk = vk;
-        this.pl = new Pistelaskuri();
-
-        this.info = info;
-        this.info2 = info2;
+        this.infoPisteet = infoPisteet;
+        this.infoVihaisetHirviot = infoVihaisetHirviot;
+        this.infoUusiHirvio = infoUusiHirvio;
+        
         this.timer = new Timer();
     }
 
@@ -67,29 +95,25 @@ public class Pelikuuntelija implements KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        Kuolema k = new Kuolema();
-        Peliloppu loppu = new Peliloppu();
-
-
         /**
          * Nollataan voimakenttä.
          */
-        vk.nollaa();
-        
-        
+        voimaKentta.nollaa();
+
+
         /**
          * Pelaajan liike.
          */
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            p.siirra(0, -25);
+            pelaaja.siirra(0, -25);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            p.siirra(0, 25);
+            pelaaja.siirra(0, 25);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            p.siirra(-25, 0);
+            pelaaja.siirra(-25, 0);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            p.siirra(25, 0);
+            pelaaja.siirra(25, 0);
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            vk.hyokkaa(p.getX(), p.getY());
+            voimaKentta.hyokkaa(pelaaja.getX(), pelaaja.getY());
         }
 
 
@@ -98,22 +122,38 @@ public class Pelikuuntelija implements KeyListener {
          */
         if (laskuri == 11) {
             TimerTask task = new TimerTask() {
-                Kuolema k = new Kuolema();
-
                 @Override
                 public void run() {
                     /**
                      * Hirviöiden liike.
                      */
-                    for (Hirvio h1 : hg.getLista()) {
-                        h1.siirra(0, 0);
-                        if (k.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
+                    for (Hirvio h1 : hirvioGen.getLista()) {
+
+                        /**
+                         * Vihamoodi käynnistyy jos vihamoodi-muuttuja on 1.
+                         * Vihamoodissa hirviöt jahtaavat pelaajaa. Muuten hirviöt 
+                         * liikkuvat randomisti.
+                         */
+                        if (vihamoodi == 1) {
+                            h1.siirra(pelaaja.getX(), pelaaja.getY());
+                        } else {
+                            h1.siirra(0, 0);
+                        }
+
+                        /**
+                         * Kuolema tarkistus pelaajalle kellon sisällä.
+                         */
+                        if (kuolema.pelaajakuollut(pelaaja.getX(), pelaaja.getY(), h1.getX(), h1.getY()) == true) {
                             tarkistaja = 0;
                         }
                     }
                     Component.repaint();
                 }
             };
+            /**
+             * Asettaa intervallin jolla hirviöt liikkuvat.
+             * Normiasetus on 0.45s välein.
+             */
             timer.schedule(task, java.util.Calendar.getInstance().getTime(), 450);
         }
 
@@ -122,13 +162,13 @@ public class Pelikuuntelija implements KeyListener {
          * Kuolema tarkistus pelaajalle.
          */
         if (tarkistaja == 0) {
-            loppu.getPisteet(pl.getPisteet());
+            loppu.getPisteet(pisteLaskuri.getPisteet());
             loppu.run();
             Component.setVisible(false);
         } else {
-            for (Hirvio h1 : hg.getLista()) {
-                if (k.pelaajakuollut(p.getX(), p.getY(), h1.getX(), h1.getY()) == true) {
-                    loppu.getPisteet(pl.getPisteet());
+            for (Hirvio h1 : hirvioGen.getLista()) {
+                if (kuolema.pelaajakuollut(pelaaja.getX(), pelaaja.getY(), h1.getX(), h1.getY()) == true) {
+                    loppu.getPisteet(pisteLaskuri.getPisteet());
                     loppu.run();
                     Component.setVisible(false);
                 }
@@ -139,33 +179,62 @@ public class Pelikuuntelija implements KeyListener {
         /**
          * Kuolema tarkistus hirviölle.
          */
-        for (int i = 0; i < hg.getLista().size(); i++) {
-            if (k.hirviokuollut(hg.getLista().get(i).getX(), hg.getLista().get(i).getY(), vk) == true) {
-                hg.tapaHirvio(i);
-                pl.lisaa();
+        for (int i = 0; i < hirvioGen.getLista().size(); i++) {
+            if (kuolema.hirviokuollut(hirvioGen.getLista().get(i).getX(), hirvioGen.getLista().get(i).getY(), voimaKentta) == true) {
+                hirvioGen.tapaHirvio(i);
+                pisteLaskuri.lisaa();
+                /**
+                 * Nollataan vihamoodi.
+                 */
+                vihamoodi = 0;
             }
         }
 
 
-        //KELLON ALUSTUS
+        /**
+         * Kellon alustus.
+         */
         if (laskuri == 11) {
             laskuri = 10;
         }
 
 
-        //UUSI HIRVIO JOKA 10 KIERROS
+        /**
+         * Uusi hirviö joka 10. kierros.
+         */
         laskuri--;
         if (laskuri == 0) {
-            hg.lisaa(0);
+            hirvioGen.lisaa(0);
             laskuri = 10;
+        }
+        
+
+        /**
+         * Vihamoodin kokeilu.
+         * Vihamoodilla on 5% mahdollisuus laueta jos se ei
+         * ole päällä.
+         */
+        if(vihamoodi != 1){
+            Random rndm = new Random();
+            vihamoodi = rndm.nextInt(19);
         }
 
 
         /**
-         * Inforuudulla näkyvät tiedot.
+         * Inforuuduilla näkyvät tiedot.
          */
-        info.setText("Pisteet: " + pl.getPisteet());
-        info2.setText("Uusi hirviö: " + laskuri);
+        infoPisteet.setText("Pisteet: " + pisteLaskuri.getPisteet());
+        infoUusiHirvio.setText("Uusi hirviö: " + laskuri);
+
+        /**
+         * Jos vihamoodi on päällä, se indikoidaan punaisella pelikentän
+         * ylälaitaan.
+         */
+        if (vihamoodi == 1) {
+            infoVihaisetHirviot.setText("Hirviöt ovat ERITTÄIN vihaisia!");
+        }else{
+            infoVihaisetHirviot.setText("");
+        }
 
 
         Component.repaint();
@@ -182,7 +251,7 @@ public class Pelikuuntelija implements KeyListener {
          * Nollaa voimakentän sen jälkeen kun se on laukaistu.
          */
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            vk.nollaa();
+            voimaKentta.nollaa();
         }
         Component.repaint();
     }

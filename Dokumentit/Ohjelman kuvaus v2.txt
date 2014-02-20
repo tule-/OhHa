@@ -7,12 +7,16 @@ lähestyvää hirviörintamaa vastaan. Aseenasi on vain pahanhajuinen hengityksesi j
 Ohjelman käynnistyessä aukeaa aloitusruutu jossa voidaan joko lukea Sepon tarina tai aloittaa suoraan uusi peli.
 
 Pelaaja aloittaa pelikentän keskeltä ja liikkuu neljään suuntaan nuolinäppäimillä. Pelikentän jokaisella laidalla on luolan
-suuaukko josta syntyy hirviöitä. Hirviöt syntyvät joka 10 kierros. Kierroksia indikoi laskuri pelikentän alalaidassa. kierros
-vaihtuu vain pelaajan toiminnan kautta. Hirviöt liikkuvat reaaliajassa noin 2 kertaa sekunnissa.
+suuaukko josta syntyy hirviöitä. Hirviöt syntyvät joka 10 kierros. Kierroksia indikoi laskuri pelikentän ylälaidassa. kierros
+vaihtuu vain pelaajan toiminnan kautta. 
 
 Pelaajan voimakenttä laukeaa painamalla SPACE-näppäintä ja hirviön osuessa voimakenttään se kuolee. Voimakenttä vaikuttaa 
 pelaajasta nähden ylös, alas, oikealle ja vasemmalle yhden koordinaatin verran. Hirviön kuollessa se katoaa pelistä ja 
 pelaajalle annetaan 10 pistettä. Osuessaan hirviöön pelaaja puolestaan kuolee. Tämän jälkeen siirrytään loppuruutuun jossa
 nähdään lopullinen pistemäärä ja on mahdollisuus pelata uudelleen.
+
+Hirviöt liikkuvat satunnaisesti reaaliajassa noin 2 kertaa sekunnissa. Joka kierroksella on 5% mahdollisuus, että hirviöt
+siirtyvät vihamoodiin jolloin ne muuttuvat punaisiksi ja alkavat jahtaamaan pelaajaa. Vihamoodi loppuu vain jos pelaaja
+tappaa yhden hirviöistä.
 
 Pelaaja eikä hirviö voi liikkua pelikentän ulkopuolelle.

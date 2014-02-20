@@ -18,17 +18,20 @@ import ohha.ohha.Kayttoliittyma;
 public class Uusipelikuuntelija implements ActionListener{
     
     private JFrame frame;
-    private JButton nappi;
+    /**
+     * Uuden pelin aloittava nappi.
+     */
+    private JButton uusi;
     
     public Uusipelikuuntelija(JFrame frame, JButton uusipeli){
         this.frame = frame;
-        this.nappi = uusipeli;
+        this.uusi = uusipeli;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Kayttoliittyma k = new Kayttoliittyma(new Pelaaja(), new HirvioGeneraattori(), new Voimakentta());
-        if(e.getSource() == nappi){
+        if(e.getSource() == uusi){
             k.run();
             frame.dispose();
         }

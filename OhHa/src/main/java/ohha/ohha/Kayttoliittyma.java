@@ -23,14 +23,15 @@ import logiikka.Voimakentta;
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private Pelaaja p;
-    private HirvioGeneraattori hg;
-    private Voimakentta vk;
+    private Pelaaja pelaaja;
+    private HirvioGeneraattori hirvioGen;
+    private Voimakentta voimakentta;
     /**
-     * Inforuutu pelikentän ylälaitaan.
+     * Kolme inforuutua pelikentälle.
      */
-    private JLabel info;
-    private JLabel info2;
+    private JLabel infoPisteet;
+    private JLabel infoVihaisetHirviot;
+    private JLabel infoUusiHirvio;
 
     /**
      * Alustaa pelaajan, hirviögeneraattorin ja voimakentän.
@@ -42,23 +43,30 @@ public class Kayttoliittyma implements Runnable {
      * @param vk voimakenttä
      */
     public Kayttoliittyma(Pelaaja p, HirvioGeneraattori hg, Voimakentta vk) {
-        this.p = p;
-        this.hg = hg;
-        this.vk = vk;
+        this.pelaaja = p;
+        this.hirvioGen = hg;
+        this.voimakentta = vk;
         /**
          * Ensimmäinen inforuutu ja sen väri.
          */
-        this.info = new JLabel("Peli alkoi!");
-        info.setBackground(Color.BLACK);
-        info.setForeground(Color.GRAY);
-        info.setOpaque(true);
+        this.infoPisteet = new JLabel("Peli alkoi!");
+        infoPisteet.setBackground(Color.BLACK);
+        infoPisteet.setForeground(Color.GRAY);
+        infoPisteet.setOpaque(true);
         /**
          * Toinen inforuutu ja sen väri.
          */
-        this.info2 = new JLabel("");
-        info2.setBackground(Color.BLACK);
-        info2.setForeground(Color.GRAY);
-        info2.setOpaque(true);
+        this.infoVihaisetHirviot = new JLabel();
+        infoVihaisetHirviot.setBackground(Color.BLACK);
+        infoVihaisetHirviot.setForeground(Color.RED);
+        infoVihaisetHirviot.setOpaque(true);
+        /**
+         * Kolmas inforuutu ja sen väri.
+         */
+        this.infoUusiHirvio = new JLabel();
+        infoUusiHirvio.setBackground(Color.BLACK);
+        infoUusiHirvio.setForeground(Color.GRAY);
+        infoUusiHirvio.setOpaque(true);
     }
 
     /**
@@ -80,8 +88,10 @@ public class Kayttoliittyma implements Runnable {
 
         lisaaKuuntelija();
 
-        //ALUSTETAAN HIRVIO
-        hg.lisaa(0);
+        /**
+         * Alustetaan hirviö.
+         */
+        hirvioGen.lisaa(0);
 
         frame.pack();
         frame.setVisible(true);
@@ -95,12 +105,13 @@ public class Kayttoliittyma implements Runnable {
      * @param container
      */
     public void luoKomponentit(Container container) {
-        Pelikentta pk = new Pelikentta(p, hg, vk);
+        Pelikentta pk = new Pelikentta(pelaaja, hirvioGen, voimakentta);
         container.add(pk);
 
-        JPanel paneeli = new JPanel(new GridLayout(1, 2));
-        paneeli.add(info);
-        paneeli.add(info2);
+        JPanel paneeli = new JPanel(new GridLayout(1, 3));
+        paneeli.add(infoPisteet);
+        paneeli.add(infoVihaisetHirviot);
+        paneeli.add(infoUusiHirvio);
         container.add(paneeli, BorderLayout.NORTH);
     }
 
@@ -110,7 +121,7 @@ public class Kayttoliittyma implements Runnable {
      * Pelikuuntelija pyörittää peliä.
      */
     public void lisaaKuuntelija() {
-        frame.addKeyListener(new Pelikuuntelija(frame, p, hg, vk, info, info2));
+        frame.addKeyListener(new Pelikuuntelija(frame, pelaaja, hirvioGen, voimakentta, infoPisteet, infoVihaisetHirviot, infoUusiHirvio));
     }
 
     public JFrame getFrame() {
