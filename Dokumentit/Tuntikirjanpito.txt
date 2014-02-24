@@ -35,3 +35,5 @@ TUNTIKIRJANPITO
                             massatuottaa hirviöitä spämmäämällä nappeja kuitenkin jätetty :)
 *20.02.14 - 2h - 36testiä - Hirviöille lisätty tyhmä tekoäly: jotkut suuttuvat pelaajalle.
 *20.02.14 - 3h - 37testiä - Hirviöiden tekoälyä viilattu. Refaktoroitu muuttujien nimiä.
+*24.02.14 - 2h - 37testiä - Korjattu bugi. Ohjeet valikko lisätty.
+*24.02.14 - 2h - 37testiä - Testailtu, hajoiltu ja ohjelma alkaa oleen paketissa.

@@ -1,0 +1,16 @@
+RAKENNEKUVAUS
+-------------
+
+Pelin perusrakenne koostuu luokista Pelaaja, Hirviögeneraattori ja Voimakenttä. Hirviögeneraattori
+hyödyntää luokkaa hirviö. Luokat Hirviö ja Pelaaja perustuvat taas luokkaan Hahmo, joka käsittää 
+liikkeen ja piirtämisen.
+
+Luokat Käyttöliittymä ja Pelikuuntelija pyörittävät itse peliä. Käyttöliittymä luo pelikentän ja 
+lisää komponentit, kuten pelaajan, hirviögeneraattorin jne.. Pelikuuntelija pyörittää peliä sekä
+jäsentelee komponenttien atribuutit oikein pelitilanteessa. Pelikuuntelija sisältää myös 
+pistelaskurin sekä kuolematarkistuksen. Peli on siis aikalailla Pelikuuntelija-luokan armoilla.
+
+Peliin liittyy myös valikkoja. On aloitusvalikko, tarinavalikko, ohjeetvalikko sekä loppuvalikko.
+Valikot ovat kytköksissä toisiinsa kuuntelijoiden avulla. Pelaaja voi liikkua valikkojen kesken.
+
+Loput luokista on grafiikkaa sisältäviä luokkia, jotka vastaavat pelin komponenttien piirtämisestä.

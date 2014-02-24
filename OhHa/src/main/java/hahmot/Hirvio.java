@@ -61,7 +61,7 @@ public class Hirvio extends Hahmo {
     /**
      * Siirtää hirviötä pelikentän rajojen sisällä.
      *
-     * Parameteinä annetaan nollat jos halutaan hirviön liikkuvan randomisti ja
+     * Parameteinä annetaan -1 jos halutaan hirviön liikkuvan randomisti ja
      * pelaajan kooordinaatit jos halutaan hirviön seuraavan pelaajaa.
      *
      * @param dx x-akelin muutos
@@ -77,7 +77,7 @@ public class Hirvio extends Hahmo {
         int x = r.nextInt(3) - 1;
         int y = r.nextInt(3) - 1;
 
-        if (dx == 0 && dy == 0) {
+        if (dx == -1 && dy == -1) {
             /*
              * Varmistetaan, että hirviö pysyy pelikentän sisällä.
              */
@@ -120,7 +120,7 @@ public class Hirvio extends Hahmo {
         /**
          * Piirretään joko vihainen tai normaali hirviö.
          */
-        if (pelaajaX == 0 && palaajaY == 0) {
+        if (pelaajaX == -1 && palaajaY == -1) {
             kuva.getHirvio(graphics, this.getX(), this.getY());
         } else {
             kuva.getVihainenHirviö(graphics, this.getX(), this.getY());

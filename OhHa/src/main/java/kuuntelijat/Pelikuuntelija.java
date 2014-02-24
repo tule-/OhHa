@@ -24,11 +24,29 @@ import logiikka.Voimakentta;
 public class Pelikuuntelija implements KeyListener {
 
     private Component Component;
+    /**
+     * The hero of the game.
+     */
     private Pelaaja pelaaja;
+    /**
+     * Hoitaa hirviöiden lisäämisen ja poistamisen.
+     */
     private HirvioGeneraattori hirvioGen;
+    /**
+     * Pelaajan Voimakenttä.
+     */
     private Voimakentta voimaKentta;
+    /**
+     * Laskee pelaajan pisteet.
+     */
     private Pistelaskuri pisteLaskuri;
+    /**
+     * Tappaa pelaajan tai hirviön.
+     */
     private Kuolema kuolema;
+    /**
+     * Pelin loputtua avautuva valikko.
+     */
     private Peliloppu loppu;
     /**
      * Laskuri joka hoitaa uuden hirviön spawnaamisen.
@@ -46,10 +64,16 @@ public class Pelikuuntelija implements KeyListener {
      */
     private int vihamoodi = 0;
     /**
-     * Kolme kpletta infopaneeleja pelikentän ylälaitaan.
+     * Inforuutu joka näyttää pelaajan pisteet.
      */
     private JLabel infoPisteet;
+    /**
+     * Inforuutu joka indikoi jos hirviöt ovat vihamoodissa.
+     */
     private JLabel infoVihaisetHirviot;
+    /**
+     * Inforuutu joka ilmoittaa milloin uusi hirviö ilmestyy.
+     */
     private JLabel infoUusiHirvio;
     /**
      * Kellon muuttuja.
@@ -63,8 +87,9 @@ public class Pelikuuntelija implements KeyListener {
      * @param p pelaaja
      * @param hg hirviögeneraattori
      * @param vk voimakenttä
-     * @param info inforuutu 1
-     * @param info2 inforuutu 2
+     * @param infoPisteet näyttää pelaajan pisteet
+     * @param infoVihaisetHirviot indikoi ovatko hirviöt vihaisia
+     * @param infoUusiHirvio näyttää milloin uusi hirviö ilmestyy
      */
     public Pelikuuntelija(Component component, Pelaaja p, HirvioGeneraattori hg, Voimakentta vk, JLabel infoPisteet,JLabel infoVihaisetHirviot, JLabel infoUusiHirvio) {
         this.Component = component;
@@ -137,7 +162,7 @@ public class Pelikuuntelija implements KeyListener {
                         if (vihamoodi == 1) {
                             h1.siirra(pelaaja.getX(), pelaaja.getY());
                         } else {
-                            h1.siirra(0, 0);
+                            h1.siirra(-1, -1);
                         }
 
                         /**

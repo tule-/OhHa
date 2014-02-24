@@ -127,58 +127,162 @@ public class HirvioTest {
     }
 
     @Test
-    public void siirraMetodiEivalitaParametreistaJosNeOvatNollat() {
-        h.siirra(0, 0);
+    public void siirraMetodiEivalitaParametreistaJosNeOvatMiinusYksi() {
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 300);
+        }
+        
+        h.siirra(-1, -1);
 
         int x = h.getX();
         int y = h.getY();
 
-        if (x == 25) {
-            assertEquals(25, x);
-        } else {
-            assertEquals(0, x);
+        if (x == 400) {
+            assertEquals(400, x);
+        } else if(x == 425){
+            assertEquals(425, x);
+        }else if(x == 375){
+            assertEquals(375, x);
         }
 
-        if (y == 325) {
-            assertEquals(325, y);
+        if (y == 300) {
+            assertEquals(300, y);
         } else if (y == 275) {
             assertEquals(275, y);
-        } else {
-            assertEquals(300, y);
+        } else if(y == 325){
+            assertEquals(325, y);
         }
     }
 
     @Test
-    public void siirraMetodiSiirtaaHirviotaKohdenTiettyaPistettaJosParametrinaOnMuutaKuinNollat() {
-        /**
-         * SIIRRYTÄÄN ENSIN KOHDEN PISTETTÄ 100,100, SITTEN KOHDEN PISTETTA 200,
-         * -100 JA LOPUKSI KOHDEN PISTETTÄ -50, 30
-         */
+    public void siirraMetodiSiirtaaHirviotaKohdenTiettyaPistettaJosParametrinaOnMuutaKuinMiinusYksi() {
+        //SIIRRETÄÄN HIRVIÖTÄ KESKELTÄ KAHDEKSAAN ERI SUUNTAAN.
+        // OH NOES COPY-PASTE TESTI ENGAGE!!!
+        
+        //ALAS
         for (int i = 0; i < 1000; i++) {
-            h.siirra(100, 100);
+            h.siirra(400, 300);
         }
         //X-AKSELI
-        assertEquals(100, h.getX());
+        assertEquals(400, h.getX());
         //Y-AKSELI
-        assertEquals(100, h.getY());
+        assertEquals(300, h.getY());
 
-        
+        //ALA VASEMMALLE
         for (int i = 0; i < 1000; i++) {
-            h.siirra(200, -100);
+            h.siirra(150, 500);
+        }
+        //X-AKSELI
+        assertEquals(150, h.getX());
+        //Y-AKSELI
+        assertEquals(500, h.getY());
+
+        //TAKAISIN KESKELLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 300);
+        }
+        //X-AKSELI
+        assertEquals(400, h.getX());
+        //Y-AKSELI
+        assertEquals(300, h.getY());
+        
+        //VASEMMALLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(200, 300);
         }
         //X-AKSELI
         assertEquals(200, h.getX());
         //Y-AKSELI
-        assertEquals(-100, h.getY());
-
+        assertEquals(300, h.getY());
         
+        //TAKAISIN KESKELLE
         for (int i = 0; i < 1000; i++) {
-            h.siirra(-50, 50);
+            h.siirra(400, 300);
         }
         //X-AKSELI
-        assertEquals(-50, h.getX());
+        assertEquals(400, h.getX());
         //Y-AKSELI
-        assertEquals(50, h.getY());
+        assertEquals(300, h.getY());
+        
+        //YLÄ VASEMMALLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(200, 150);
+        }
+        //X-AKSELI
+        assertEquals(200, h.getX());
+        //Y-AKSELI
+        assertEquals(150, h.getY());
+        
+        //TAKAISIN KESKELLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 300);
+        }
+        //X-AKSELI
+        assertEquals(400, h.getX());
+        //Y-AKSELI
+        assertEquals(300, h.getY());
+        
+        //YLÖS
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 150);
+        }
+        //X-AKSELI
+        assertEquals(400, h.getX());
+        //Y-AKSELI
+        assertEquals(150, h.getY());
+        
+        //TAKAISIN KESKELLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 300);
+        }
+        //X-AKSELI
+        assertEquals(400, h.getX());
+        //Y-AKSELI
+        assertEquals(300, h.getY());
+        
+        //YLÄ OIKEALLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(650, 150);
+        }
+        //X-AKSELI
+        assertEquals(650, h.getX());
+        //Y-AKSELI
+        assertEquals(150, h.getY());
+        
+        //TAKAISIN KESKELLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 300);
+        }
+        //X-AKSELI
+        assertEquals(400, h.getX());
+        //Y-AKSELI
+        assertEquals(300, h.getY());
+        
+        //OIKEALLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(650, 300);
+        }
+        //X-AKSELI
+        assertEquals(650, h.getX());
+        //Y-AKSELI
+        assertEquals(300, h.getY());
+        
+        //TAKAISIN KESKELLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(400, 300);
+        }
+        //X-AKSELI
+        assertEquals(400, h.getX());
+        //Y-AKSELI
+        assertEquals(300, h.getY());
+        
+        //ALA OIKEALLE
+        for (int i = 0; i < 1000; i++) {
+            h.siirra(600, 400);
+        }
+        //X-AKSELI
+        assertEquals(600, h.getX());
+        //Y-AKSELI
+        assertEquals(400, h.getY());
     }
-    //LISÄTÄÄN TESTEJÄ GRAAFISELLELIITTYMÄLLE?
 }

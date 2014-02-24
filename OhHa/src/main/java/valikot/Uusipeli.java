@@ -17,7 +17,8 @@ import javax.swing.WindowConstants;
 /**
  * Pelin käynnistyksen yhteydessä aukeava valikko.
  * 
- * Mahdollisuus aloittaa peli tai lukea Sepon tarina.
+ * Mahdollisuus aloittaa peli, lukea Sepon tarina tai
+ * lukea pelin ohjeet.
  */
 public class Uusipeli implements Runnable {
     
@@ -30,7 +31,7 @@ public class Uusipeli implements Runnable {
     public void run() {
         this.frame = new JFrame();
         
-        frame.setPreferredSize(new Dimension(180, 200));
+        frame.setPreferredSize(new Dimension(250, 200));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -54,9 +55,9 @@ public class Uusipeli implements Runnable {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         
-        JPanel paneeli= new JPanel(new GridLayout(4, 1));
+        JPanel paneeli= new JPanel(new GridLayout(5, 1));
         
-        JLabel info = new JLabel("           SEPPO PELI 1.0");
+        JLabel info = new JLabel("                        SEPPO PELI 1.0");
         info.setBackground(Color.BLACK);
         info.setForeground(Color.WHITE);
         info.setOpaque(true);
@@ -75,15 +76,22 @@ public class Uusipeli implements Runnable {
         tarina.setForeground(Color.WHITE);
         tarina.setOpaque(true);
         
+        JButton ohjeet = new JButton("Ohjeet");
+        ohjeet.setBackground(Color.BLACK);
+        ohjeet.setForeground(Color.WHITE);
+        ohjeet.setOpaque(true);
+        
         paneeli.add(info);
         paneeli.add(tyhja);
         paneeli.add(uusi);
         paneeli.add(tarina);
+        paneeli.add(ohjeet);
         
         container.add(paneeli, BorderLayout.CENTER);
 
-        Alkukuuntelija kuuntelija = new Alkukuuntelija(frame, uusi, tarina);
+        Alkukuuntelija kuuntelija = new Alkukuuntelija(frame, uusi, tarina, ohjeet);
         uusi.addActionListener(kuuntelija);
         tarina.addActionListener(kuuntelija);
+        ohjeet.addActionListener(kuuntelija);
     }
 }

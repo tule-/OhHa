@@ -1,0 +1,7 @@
+Seppo liikkuu nuolinäppäimillä.
+Voimakenttä laukeaa space näppäimellä.
+Seppo kuolee osuessaan hirviöön.
+Hirviö kuolee osuessaan Sepon voimakenttään.
+Jokaisesta taposta saa 10 pistettä.
+Hirviöt saavat välillä raivonpuuskia, ole siis varovainen.
+Onnea matkaan!

@@ -1,6 +1,5 @@
 package hahmot;
 
-import java.awt.Graphics;
 import logiikka.Hahmo;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +11,8 @@ public class PelaajaTest {
 
     @Before
     public void setUp() {
-        this.p = new Pelaaja();
         //ALKU KOORDINAATIT (400,300)
+        this.p = new Pelaaja();
     }
 
     @Test
@@ -78,6 +77,4 @@ public class PelaajaTest {
         assertEquals(775, p.getX());
         assertEquals(575, p.getY());
     }
-
-    //LISÄÄ TESTEJÄ KUN GRAFIIKKALIITTYMÄ SAADAAN KASAAN?
 }

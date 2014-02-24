@@ -17,8 +17,8 @@ import javax.swing.WindowConstants;
 /**
  * Pelaaja voi lukea Sepon sydäntä särkevän tarinan.
  * 
- * Ruudun alalaidassa on painike jolla pelaaja aloittaa
- * uuden pelin.
+ * Ruudun alalaidassa on painike jolla pelaaja voi siirtyä
+ * takaisin päävalikkoon.
  */
 public class Sepontarina  implements Runnable{
     
@@ -83,8 +83,8 @@ public class Sepontarina  implements Runnable{
         varitaLabeli(info12);
         JLabel info13 = new JLabel("Se jää vain nähtäväksi.");
         varitaLabeli(info13);
-        JButton uusi = new JButton("Aloita peli");
-        varitaNappi(uusi);
+        JButton takaisin = new JButton("Takaisin");
+        varitaNappi(takaisin);
         
         paneeli.add(info);
         paneeli.add(info2);
@@ -99,12 +99,12 @@ public class Sepontarina  implements Runnable{
         paneeli.add(info11);
         paneeli.add(info12);
         paneeli.add(info13);
-        paneeli.add(uusi);
+        paneeli.add(takaisin);
         
         container.add(paneeli, BorderLayout.CENTER);
 
-        Uusipelikuuntelija kuuntelija = new Uusipelikuuntelija(frame, uusi);
-        uusi.addActionListener(kuuntelija);
+        Uusipelikuuntelija kuuntelija = new Uusipelikuuntelija(frame, takaisin);
+        takaisin.addActionListener(kuuntelija);
     }
     
     /**
