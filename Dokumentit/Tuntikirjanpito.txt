@@ -37,3 +37,4 @@ TUNTIKIRJANPITO
 *20.02.14 - 3h - 37testiä - Hirviöiden tekoälyä viilattu. Refaktoroitu muuttujien nimiä.
 *24.02.14 - 2h - 37testiä - Korjattu bugi. Ohjeet valikko lisätty.
 *24.02.14 - 2h - 37testiä - Testailtu, hajoiltu ja ohjelma alkaa oleen paketissa.
+*27.02.14 - 1h - 37testiä - Viimeisiä viilauksia.

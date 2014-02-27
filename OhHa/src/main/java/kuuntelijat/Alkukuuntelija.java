@@ -33,6 +33,14 @@ public class Alkukuuntelija implements ActionListener {
      */
     private JButton ohjeet;
 
+    /**
+     * Kuuntelijalle tuodaan tarvittavat komponentit.
+     * 
+     * @param frame
+     * @param uusipeli uuden pelin aloittava nappi
+     * @param sepontarina Sepontarinan käynnistävä nappi
+     * @param ohjeet Ohjeet käynnistävä nappi
+     */
     public Alkukuuntelija(JFrame frame, JButton uusipeli, JButton sepontarina, JButton ohjeet) {
         this.frame = frame;
         this.uusi = uusipeli;
@@ -40,22 +48,26 @@ public class Alkukuuntelija implements ActionListener {
         this.ohjeet = ohjeet;
     }
 
+    /**
+     * Kuuntelee mitä nappia painetaan.
+     * @param e painettu nappi
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        Kayttoliittyma k = new Kayttoliittyma(new Pelaaja(), new HirvioGeneraattori(), new Voimakentta());
-        Sepontarina s = new Sepontarina();
-        Ohjeet o = new Ohjeet();
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(new Pelaaja(), new HirvioGeneraattori(), new Voimakentta());
+        Sepontarina sepontarina = new Sepontarina();
+        Ohjeet ohje = new Ohjeet();
         
         if (e.getSource() == uusi) {
-            k.run();
+            kayttoliittyma.run();
             frame.dispose();
         }
         if (e.getSource() == tarina) {
-            s.run();
+            sepontarina.run();
             frame.dispose();
         }
         if(e.getSource() == ohjeet){
-            o.run();
+            ohje.run();
             frame.dispose();
         }
     }

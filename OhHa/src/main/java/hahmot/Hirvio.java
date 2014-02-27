@@ -64,9 +64,9 @@ public class Hirvio extends Hahmo {
      * Parameteinä annetaan -1 jos halutaan hirviön liikkuvan randomisti ja
      * pelaajan kooordinaatit jos halutaan hirviön seuraavan pelaajaa.
      *
-     * @param dx x-akelin muutos
+     * @param dx x-akselin muutos
      *
-     * @param dy y-akelin muutos
+     * @param dy y-akselin muutos
      */
     @Override
     public void siirra(int dx, int dy) {

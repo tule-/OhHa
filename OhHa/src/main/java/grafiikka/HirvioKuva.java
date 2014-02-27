@@ -51,7 +51,13 @@ public class HirvioKuva {
         graphics.fillRect(x, y + 20, 5, 5);
         graphics.fillRect(x + 20, y + 20, 5, 5);
     }
-    
+    /**
+     * Piirtää vihaisen hirviön kuvan
+     * 
+     * @param graphics
+     * @param x hirviön x-koordinaatti
+     * @param y hirviön y-koordinaatti
+     */
     public void getVihainenHirviö(Graphics graphics, int x, int y){
         //VIHAINEN HIRVIÖ VARAA 25X25 ALUEEN KENTÄLTÄ
         graphics.setColor(Color.BLACK);

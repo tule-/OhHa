@@ -11,7 +11,7 @@ public abstract class Hahmo {
 
     private int X;
     private int Y;
-
+    
     public Hahmo(int x, int y) {
         this.X = x;
         this.Y = y;

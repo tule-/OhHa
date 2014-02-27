@@ -20,16 +20,27 @@ public class Uusipelikuuntelija implements ActionListener{
      */
     private JButton uusi;
     
+    /**
+     * Määrittalee tarvittavat komponentit.
+     * 
+     * @param frame
+     * @param uusipeli Uuden pelin aloittava nappi
+     */
     public Uusipelikuuntelija(JFrame frame, JButton uusipeli){
         this.frame = frame;
         this.uusi = uusipeli;
     }
 
+    /**
+     * kuuntelee painettuja nappeja.
+     * 
+     * @param e painettu nappi
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        Uusipeli u = new Uusipeli();
+        Uusipeli uusipeli = new Uusipeli();
         if(e.getSource() == uusi){
-            u.run();
+            uusipeli.run();
             frame.dispose();
         }
     }
